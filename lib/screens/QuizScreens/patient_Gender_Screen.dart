@@ -157,7 +157,7 @@ class _PatientGenderScreen extends State<PatientGenderScreen> {
                         height: 10,
                       ),
                       LinearPercentIndicator(
-                        width: 350,
+                        width: 320,
                         lineHeight: 4,
                         percent: 0.25,
                         backgroundColor: MyColor.lightGrey,

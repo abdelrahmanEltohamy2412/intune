@@ -14,10 +14,10 @@ class ForgetPasswordScreen extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           leading: IconButton(
-            icon: Icon(Icons.arrow_back),
+            icon: const Icon(Icons.arrow_back),
             onPressed: () {
               Navigator.push(
-                  context, MaterialPageRoute(builder: (_) => SignScreen()));
+                  context, MaterialPageRoute(builder: (_) => const SignScreen()));
             },
           ),
           backgroundColor: MyColor.lightGreen,
@@ -75,7 +75,7 @@ class ForgetPasswordScreen extends StatelessWidget {
                         const SizedBox(
                           height: 20,
                         ),
-                        Container(
+                        SizedBox(
                             width: double.infinity,
                             height: 100,
                             child: TextFormFieldScreen(
@@ -89,7 +89,7 @@ class ForgetPasswordScreen extends StatelessWidget {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (_) => CheckScreen()));
+                                    builder: (_) => const CheckScreen()));
                           },
                         )),
                       ],

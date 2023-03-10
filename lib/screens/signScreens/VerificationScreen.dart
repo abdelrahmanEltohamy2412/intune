@@ -16,17 +16,18 @@ class VerificationScreen extends StatefulWidget {
 }
 
 class _VerificationScreenState extends State<VerificationScreen> {
-  bool _onEditing = true;
+  final bool _onEditing = true;
   String? _code;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           leading: IconButton(
-            icon: Icon(Icons.arrow_back),
+            icon: const Icon(Icons.arrow_back),
             onPressed: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (_) => CheckScreen()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (_) => const CheckScreen()));
             },
           ),
           backgroundColor: MyColor.lightGreen,
@@ -86,7 +87,7 @@ class _VerificationScreenState extends State<VerificationScreen> {
                         ),
                         const FractionallySizedBox(
                             widthFactor: 1, child: PinputExample()),
-                        SizedBox(
+                        const SizedBox(
                           height: 40,
                         ),
                         Center(

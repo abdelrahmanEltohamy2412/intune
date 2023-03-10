@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:intune/const/Navigetor/Navigetor.dart';
 import 'package:intune/const/TextForm_screen/TextForm_Screen.dart';
 import 'package:intune/const/colors/colors.dart';
+import 'package:intune/screens/HomeScreen/homescreen.dart';
 import 'package:intune/screens/signScreens/RegisterScreen.dart';
 import 'package:intune/screens/signScreens/forgetpasswordScreen.dart';
 
@@ -136,7 +138,7 @@ class SignScreen extends StatelessWidget {
                       Center(
                         child: FillButtonScreen(
                           text: 'Sign In',
-                          onpressed: () {},
+                          onpressed: (){navigateTo(context, const BottomBarScreen());},
                         ),
                       ),
                       const SizedBox(

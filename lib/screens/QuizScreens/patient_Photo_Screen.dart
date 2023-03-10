@@ -152,12 +152,14 @@ class _PatientPhotoScreen extends State<PatientPhotoScreen> {
                         const SizedBox(
                           height: 10,
                         ),
-                        LinearPercentIndicator(
-                          width: 350,
-                          lineHeight: 4,
-                          percent: 0.25,
-                          backgroundColor: MyColor.lightGrey,
-                          progressColor: MyColor.pink,
+                        SingleChildScrollView(
+                          child: LinearPercentIndicator(
+                            width: 320,
+                            lineHeight: 4,
+                            percent: 0.20,
+                            backgroundColor: MyColor.lightGrey,
+                            progressColor: MyColor.pink,
+                          ),
                         ),
                       ],
                     ),

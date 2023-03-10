@@ -82,7 +82,7 @@ class CheckScreen extends StatelessWidget {
                             textAlign: TextAlign.center,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 30,
                         ),
                         Center(
@@ -92,7 +92,7 @@ class CheckScreen extends StatelessWidget {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (_) => VerificationScreen()));
+                                    builder: (_) => const VerificationScreen()));
                           },
                         )),
                       ],
