@@ -117,11 +117,7 @@ class SignScreen extends StatelessWidget {
                               ),
                               TextButton(
                                 onPressed: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (_) =>
-                                              const ForgetPasswordScreen()));
+                                  navigateTo(context, ForgetPasswordScreen());
                                 },
                                 child: const Text(
                                   "Forget password?",
@@ -138,7 +134,9 @@ class SignScreen extends StatelessWidget {
                       Center(
                         child: FillButtonScreen(
                           text: 'Sign In',
-                          onpressed: (){navigateTo(context, const BottomBarScreen());},
+                          onpressed: () {
+                            navigateTo(context, const BottomBarScreen());
+                          },
                         ),
                       ),
                       const SizedBox(
@@ -148,10 +146,7 @@ class SignScreen extends StatelessWidget {
                         child: OutlineBorderScreen(
                           text: 'Register',
                           onpressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (_) => const RegisterScreen()));
+                            navigateTo(context, RegisterScreen());
                           },
                         ),
                       ),

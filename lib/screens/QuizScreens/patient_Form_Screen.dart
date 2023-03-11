@@ -3,6 +3,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:intune/const/Linear_PercentIndicator/Linear_PercentIndicator.dart';
+import 'package:intune/const/Navigetor/Navigetor.dart';
 import 'package:intune/const/TextForm_screen/TextForm_Screen.dart';
 import 'package:intune/const/colors/colors.dart';
 import 'package:intune/screens/QuizScreens/patient_Gender_Screen.dart';
@@ -27,8 +29,7 @@ class _PatientFormScreen extends State<PatientFormScreen> {
           actions: [
             ElevatedButton(
               onPressed: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (_) => SignScreen()));
+                navigateTo(context, const PatientGenderScreen());
               },
               style: ButtonStyle(
                   backgroundColor:
@@ -125,23 +126,14 @@ class _PatientFormScreen extends State<PatientFormScreen> {
                           child: FillButtonScreen(
                             text: "Next",
                             onpressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (_) => PatientGenderScreen()));
+                              navigateTo(context, const PatientGenderScreen());
                             },
                           ),
                         ),
                         const SizedBox(
                           height: 10,
                         ),
-                        LinearPercentIndicator(
-                          width: 320,
-                          lineHeight: 4,
-                          percent: 0.25,
-                          backgroundColor: MyColor.lightGrey,
-                          progressColor: MyColor.pink,
-                        ),
+                        LinearPercentIndicatorScreen(precent: 0.333333334)
                       ],
                     ),
                   ),

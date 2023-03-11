@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intune/const/Fill_button/fill_button_screen.dart';
+import 'package:intune/const/Navigetor/Navigetor.dart';
 import 'package:intune/const/TextForm_screen/TextForm_Screen.dart';
 import 'package:intune/const/colors/colors.dart';
 import 'package:intune/screens/signScreens/checkEmail.dart';
@@ -16,8 +17,7 @@ class ForgetPasswordScreen extends StatelessWidget {
           leading: IconButton(
             icon: const Icon(Icons.arrow_back),
             onPressed: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (_) => const SignScreen()));
+              navigateTo(context, SignScreen());
             },
           ),
           backgroundColor: MyColor.lightGreen,

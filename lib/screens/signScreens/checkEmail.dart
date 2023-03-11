@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intune/const/Fill_button/fill_button_screen.dart';
+import 'package:intune/const/Navigetor/Navigetor.dart';
 import 'package:intune/const/colors/colors.dart';
 import 'package:intune/screens/signScreens/VerificationScreen.dart';
 import 'package:intune/screens/signScreens/forgetpasswordScreen.dart';
@@ -16,8 +17,7 @@ class CheckScreen extends StatelessWidget {
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (_) => ForgetPasswordScreen()));
+            navigateTo(context, ForgetPasswordScreen());
           },
         ),
         backgroundColor: MyColor.lightGreen,
@@ -87,14 +87,10 @@ class CheckScreen extends StatelessWidget {
                         ),
                         Center(
                             child: FillButtonScreen(
-                          text: "Go to Mail",
-                          onpressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (_) => const VerificationScreen()));
-                          },
-                        )),
+                                text: "Go to Mail",
+                                onpressed: () {
+                                  navigateTo(context, VerificationScreen());
+                                })),
                       ],
                     ),
                   ))

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intune/const/Fill_button/fill_button_screen.dart';
+import 'package:intune/const/Navigetor/Navigetor.dart';
 import 'package:intune/const/colors/colors.dart';
 import 'package:intune/screens/QuizScreens/patient_Photo_Screen.dart';
 import 'package:intune/screens/signScreens/signScreen.dart';
@@ -15,8 +16,7 @@ class ResetScreen extends StatelessWidget {
           leading: IconButton(
             icon: const Icon(Icons.arrow_back),
             onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (_) => const SignScreen()));
+              navigateTo(context, SignScreen());
             },
           ),
           backgroundColor: MyColor.lightGreen,
@@ -143,11 +143,7 @@ class ResetScreen extends StatelessWidget {
                                     child: FillButtonScreen(
                                   text: "Recover Password",
                                   onpressed: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (_) =>
-                                                const PatientPhotoScreen()));
+                                    navigateTo(context, SignScreen());
                                   },
                                 )),
                               ],

@@ -4,20 +4,20 @@ import 'package:intune/const/Linear_PercentIndicator/Linear_PercentIndicator.dar
 import 'package:intune/const/Navigetor/Navigetor.dart';
 import 'package:intune/const/colors/colors.dart';
 import 'package:intune/screens/QuizScreens/patient_Gender_Screen.dart';
-import 'package:intune/screens/QuizScreens/select_heart/heart_Photo_position_screen.dart';
-import 'package:intune/screens/QuizScreens/select_lung/Posterior_View_photo_screen.dart';
+import 'package:intune/screens/QuizScreens/select_lung/Anterior_View_photo_screen.dart';
+
 import 'package:intune/screens/signScreens/signScreen.dart';
 
 import '../../../const/Fill_button/fill_button_screen.dart';
 
-class PosteriorViewScreen extends StatefulWidget {
-  const PosteriorViewScreen({Key? key}) : super(key: key);
+class AnteriorViewScreen extends StatefulWidget {
+  const AnteriorViewScreen({Key? key}) : super(key: key);
 
   @override
-  State<PosteriorViewScreen> createState() => _PosteriorViewScreen();
+  State<AnteriorViewScreen> createState() => _AnteriorViewScreen();
 }
 
-class _PosteriorViewScreen extends State<PosteriorViewScreen> {
+class _AnteriorViewScreen extends State<AnteriorViewScreen> {
   int _groupValue = -1;
   Color mColor = MyColor.green, mColor0 = MyColor.green;
   final isSelected = <bool>[false, false];
@@ -28,7 +28,7 @@ class _PosteriorViewScreen extends State<PosteriorViewScreen> {
           leading: IconButton(
             icon: const Icon(Icons.arrow_back),
             onPressed: () {
-              navigateTo(context, posteriorPhotoScreen());
+              navigateTo(context, AnteriorPhotoScreen());
             },
           ),
           backgroundColor: MyColor.lightGreen,
@@ -44,7 +44,7 @@ class _PosteriorViewScreen extends State<PosteriorViewScreen> {
             child: Column(
               children: [
                 const SizedBox(
-                  height: 15,
+                  height: 30,
                 ),
                 Container(
                   width: double.infinity,
@@ -61,10 +61,10 @@ class _PosteriorViewScreen extends State<PosteriorViewScreen> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         const SizedBox(
-                          height: 15,
+                          height: 20,
                         ),
                         const Text(
-                          "Posterior View",
+                          "Anterior View",
                           style: TextStyle(
                               fontSize: 22,
                               fontWeight: FontWeight.bold,
@@ -73,7 +73,10 @@ class _PosteriorViewScreen extends State<PosteriorViewScreen> {
                           textAlign: TextAlign.start,
                         ),
                         const SizedBox(
-                          height: 20,
+                          height: 30,
+                        ),
+                        const SizedBox(
+                          height: 30,
                         ),
                         Container(
                             height: 70,
@@ -89,7 +92,7 @@ class _PosteriorViewScreen extends State<PosteriorViewScreen> {
                                 value: 0,
                                 groupValue: _groupValue,
                                 title: const Text(
-                                  "ULR",
+                                  "R Upper Lobe",
                                   style: TextStyle(
                                       fontSize: 18, color: MyColor.dark),
                                 ),
@@ -116,7 +119,7 @@ class _PosteriorViewScreen extends State<PosteriorViewScreen> {
                                 value: 1,
                                 groupValue: _groupValue,
                                 title: const Text(
-                                  "MLR",
+                                  "L Upper Lobe",
                                   style: TextStyle(
                                       fontSize: 18, color: MyColor.dark),
                                 ),
@@ -143,7 +146,7 @@ class _PosteriorViewScreen extends State<PosteriorViewScreen> {
                                 value: 2,
                                 groupValue: _groupValue,
                                 title: const Text(
-                                  "LLR",
+                                  "R Middle Lobe",
                                   style: TextStyle(
                                       fontSize: 18, color: MyColor.dark),
                                 ),
@@ -154,91 +157,7 @@ class _PosteriorViewScreen extends State<PosteriorViewScreen> {
                               ),
                             )),
                         const SizedBox(
-                          height: 10,
-                        ),
-                        Container(
-                            height: 70,
-                            decoration: BoxDecoration(
-                                border: Border.all(color: MyColor.green),
-                                borderRadius: BorderRadius.circular(20)),
-                            child: Center(
-                              child: RadioListTile(
-                                dense: true,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(22),
-                                ),
-                                value: 3,
-                                groupValue: _groupValue,
-                                title: const Text(
-                                  "ULL",
-                                  style: TextStyle(
-                                      fontSize: 18, color: MyColor.dark),
-                                ),
-                                onChanged: (newValue) =>
-                                    setState(() => _groupValue = newValue!),
-                                activeColor: MyColor.green,
-                                selected: false,
-                              ),
-                            )),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        Container(
-                            height: 70,
-                            decoration: BoxDecoration(
-                                border: Border.all(color: MyColor.green),
-                                borderRadius: BorderRadius.circular(20)),
-                            child: Center(
-                              child: RadioListTile(
-                                dense: true,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(22),
-                                ),
-                                value: 4,
-                                groupValue: _groupValue,
-                                title: const Text(
-                                  "MLL",
-                                  style: TextStyle(
-                                      fontSize: 18, color: MyColor.dark),
-                                ),
-                                onChanged: (newValue) =>
-                                    setState(() => _groupValue = newValue!),
-                                activeColor: MyColor.green,
-                                selected: false,
-                              ),
-                            )),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        Container(
-                            height: 70,
-                            decoration: BoxDecoration(
-                                border: Border.all(color: MyColor.green),
-                                borderRadius: BorderRadius.circular(20)),
-                            child: Center(
-                              child: RadioListTile(
-                                dense: true,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(22),
-                                ),
-                                value: 5,
-                                groupValue: _groupValue,
-                                title: const Text(
-                                  "LLL",
-                                  style: TextStyle(
-                                      fontSize: 18, color: MyColor.dark),
-                                ),
-                                onChanged: (newValue) =>
-                                    setState(() => _groupValue = newValue!),
-                                activeColor: MyColor.green,
-                                selected: false,
-                              ),
-                            )),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        const SizedBox(
-                          height: 10,
+                          height: 200,
                         ),
                         Center(
                           child: FillButtonScreen(

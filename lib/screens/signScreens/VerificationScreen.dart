@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intune/const/Fill_button/fill_button_screen.dart';
+import 'package:intune/const/Navigetor/Navigetor.dart';
 import 'package:intune/const/colors/colors.dart';
 import 'package:intune/screens/signScreens/checkEmail.dart';
-import 'package:flutter_verification_code/flutter_verification_code.dart';
+
 import 'package:intune/screens/signScreens/reset_password_Screen.dart';
 
 import 'verificationFormatScreen.dart';
@@ -26,8 +27,7 @@ class _VerificationScreenState extends State<VerificationScreen> {
           leading: IconButton(
             icon: const Icon(Icons.arrow_back),
             onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (_) => const CheckScreen()));
+              navigateTo(context, CheckScreen());
             },
           ),
           backgroundColor: MyColor.lightGreen,
@@ -94,10 +94,7 @@ class _VerificationScreenState extends State<VerificationScreen> {
                             child: FillButtonScreen(
                           text: "Continue",
                           onpressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (_) => ResetScreen()));
+                            navigateTo(context, ResetScreen());
                           },
                         )),
                       ],

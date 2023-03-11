@@ -4,10 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intune/const/Fill_button/fill_button_screen.dart';
+import 'package:intune/const/Navigetor/Navigetor.dart';
 import 'package:intune/const/colors/colors.dart';
 import 'package:intune/screens/QuizScreens/patient_Form_Screen.dart';
 import 'package:intune/screens/signScreens/signScreen.dart';
-import 'package:percent_indicator/linear_percent_indicator.dart';
+
+import '../../const/Linear_PercentIndicator/Linear_PercentIndicator.dart';
 
 class PatientPhotoScreen extends StatefulWidget {
   const PatientPhotoScreen({Key? key}) : super(key: key);
@@ -38,8 +40,7 @@ class _PatientPhotoScreen extends State<PatientPhotoScreen> {
           actions: [
             ElevatedButton(
               onPressed: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (_) => SignScreen()));
+                navigateTo(context, const PatientFormScreen());
               },
               style: ButtonStyle(
                   backgroundColor:
@@ -143,22 +144,15 @@ class _PatientPhotoScreen extends State<PatientPhotoScreen> {
                             child: FillButtonScreen(
                           text: "Next",
                           onpressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (_) => const PatientFormScreen()));
+                            navigateTo(context, const PatientFormScreen());
                           },
                         )),
                         const SizedBox(
                           height: 10,
                         ),
                         SingleChildScrollView(
-                          child: LinearPercentIndicator(
-                            width: 320,
-                            lineHeight: 4,
-                            percent: 0.20,
-                            backgroundColor: MyColor.lightGrey,
-                            progressColor: MyColor.pink,
+                          child: LinearPercentIndicatorScreen(
+                            precent: 0.16666667,
                           ),
                         ),
                       ],

@@ -2,7 +2,6 @@ import 'dart:async';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/material.dart';
-import 'package:intune/const/colors/colors.dart';
 import 'package:intune/screens/onboarding/onboardingScreen.dart';
 
 class SplashScreen extends StatefulWidget {

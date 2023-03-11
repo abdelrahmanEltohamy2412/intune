@@ -1,12 +1,14 @@
 import 'dart:io';
 
+import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:image_picker/image_picker.dart';
+import 'package:intune/const/Navigetor/Navigetor.dart';
 import 'package:intune/const/colors/colors.dart';
 import 'package:intune/screens/QuizScreens/patient_Form_Screen.dart';
-import 'package:intune/screens/signScreens/signScreen.dart';
-import 'package:percent_indicator/linear_percent_indicator.dart';
+import 'package:intune/screens/QuizScreens/select_Organ_Screen.dart';
+
+import '../../const/Linear_PercentIndicator/Linear_PercentIndicator.dart';
 
 class PatientGenderScreen extends StatefulWidget {
   const PatientGenderScreen({Key? key}) : super(key: key);
@@ -19,6 +21,11 @@ class _PatientGenderScreen extends State<PatientGenderScreen> {
   int _groupValue = -1;
   Color mColor = MyColor.green, mColor0 = MyColor.green;
   final isSelected = <bool>[false, false];
+  final List<String> items = [
+    'Yes',
+    'No',
+  ];
+  String? selectedValue;
 
   @override
   Widget build(BuildContext context) {
@@ -27,8 +34,7 @@ class _PatientGenderScreen extends State<PatientGenderScreen> {
         actions: [
           ElevatedButton(
             onPressed: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (_) => SignScreen()));
+              navigateTo(context, const SelectOrganScreen());
             },
             style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(MyColor.lightGreen),
@@ -42,8 +48,7 @@ class _PatientGenderScreen extends State<PatientGenderScreen> {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (_) => PatientFormScreen()));
+            navigateTo(context, PatientFormScreen());
           },
         ),
         backgroundColor: MyColor.lightGreen,
@@ -90,38 +95,155 @@ class _PatientGenderScreen extends State<PatientGenderScreen> {
                       const SizedBox(
                         height: 30,
                       ),
+                      Container(
+                          height: 70,
+                          decoration: BoxDecoration(
+                              border: Border.all(color: MyColor.green),
+                              borderRadius: BorderRadius.circular(20)),
+                          child: Center(
+                            child: RadioListTile(
+                              dense: true,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(22),
+                              ),
+                              value: 0,
+                              groupValue: _groupValue,
+                              title: const Text(
+                                "Male",
+                                style: TextStyle(
+                                    fontSize: 18, color: MyColor.dark),
+                              ),
+                              onChanged: (newValue) =>
+                                  setState(() => _groupValue = newValue!),
+                              activeColor: MyColor.green,
+                              selected: false,
+                            ),
+                          )),
                       const SizedBox(
-                        height: 170,
+                        height: 15,
                       ),
-                      RadioListTile(
-                        dense: true,
-                        tileColor: MyColor.green,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(22),
+                      Container(
+                          height: 70,
+                          decoration: BoxDecoration(
+                              border: Border.all(color: MyColor.green),
+                              borderRadius: BorderRadius.circular(20)),
+                          child: Center(
+                            child: RadioListTile(
+                              dense: true,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(22),
+                              ),
+                              value: 1,
+                              groupValue: _groupValue,
+                              title: const Text(
+                                "Female",
+                                style: TextStyle(
+                                    fontSize: 18, color: MyColor.dark),
+                              ),
+                              onChanged: (newValue) =>
+                                  setState(() => _groupValue = newValue!),
+                              activeColor: MyColor.green,
+                              selected: false,
+                            ),
+                          )),
+                      const SizedBox(
+                        height: 40,
+                      ),
+                      Text(
+                        "Define your condition, please. This information is needed for your doctors.",
+                        style: TextStyle(
+                            fontSize: 13,
+                            color: MyColor.green.withOpacity(0.5)),
+                      ),
+                      const SizedBox(
+                        height: 40,
+                      ),
+                      Center(
+                        child: DropdownButtonHideUnderline(
+                          child: DropdownButton2(
+                            isExpanded: true,
+                            hint: Row(
+                              children: const [
+                                Expanded(
+                                  child: Text(
+                                    'Pregnancy Status',
+                                    style: TextStyle(
+                                      fontSize: 14,
+                                      color: MyColor.darkBlue,
+                                    ),
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            items: items
+                                .map((item) => DropdownMenuItem<String>(
+                                      value: item,
+                                      child: Text(
+                                        item,
+                                        style: const TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.bold,
+                                          color: MyColor.dark,
+                                        ),
+                                        overflow: TextOverflow.ellipsis,
+                                      ),
+                                    ))
+                                .toList(),
+                            value: selectedValue,
+                            onChanged: (value) {
+                              setState(() {
+                                selectedValue = value as String;
+                              });
+                            },
+                            buttonStyleData: ButtonStyleData(
+                              height: 50,
+                              width: 350,
+                              padding:
+                                  const EdgeInsets.only(left: 14, right: 14),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(14),
+                                border: Border.all(
+                                  color: MyColor.green,
+                                ),
+                                color: Colors.white,
+                              ),
+                              elevation: 2,
+                            ),
+                            iconStyleData: const IconStyleData(
+                              icon: Icon(
+                                Icons.keyboard_arrow_down_outlined,
+                                size: 20,
+                              ),
+                              iconSize: 14,
+                              iconEnabledColor: MyColor.green,
+                              iconDisabledColor: MyColor.darkGray,
+                            ),
+                            dropdownStyleData: DropdownStyleData(
+                              maxHeight: 200,
+                              width: 200,
+                              padding: null,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(14),
+                                  color: Colors.white),
+                              elevation: 8,
+                              offset: const Offset(-5, 0),
+                              scrollbarTheme: ScrollbarThemeData(
+                                radius: const Radius.circular(40),
+                                thickness: MaterialStateProperty.all<double>(6),
+                                thumbVisibility:
+                                    MaterialStateProperty.all<bool>(true),
+                              ),
+                            ),
+                            menuItemStyleData: const MenuItemStyleData(
+                              height: 40,
+                              padding: EdgeInsets.only(left: 14, right: 14),
+                            ),
+                          ),
                         ),
-                        value: 0,
-                        groupValue: _groupValue,
-                        title: Text("Male"),
-                        onChanged: (newValue) =>
-                            setState(() => _groupValue = newValue!),
-                        activeColor: Colors.red,
-                        selected: false,
                       ),
-                      RadioListTile(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(22),
-                        ),
-                        value: 1,
-                        groupValue: _groupValue,
-                        tileColor: MyColor.green,
-                        title: Text("Female"),
-                        onChanged: (newValue) =>
-                            setState(() => _groupValue = newValue!),
-                        activeColor: Colors.red,
-                        selected: false,
-                      ),
-                      SizedBox(
-                        height: 100,
+                      const SizedBox(
+                        height: 115,
                       ),
                       Center(
                         child: Container(
@@ -129,11 +251,7 @@ class _PatientGenderScreen extends State<PatientGenderScreen> {
                           height: 80,
                           child: OutlinedButton(
                             onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (_) =>
-                                          const PatientFormScreen()));
+                              navigateTo(context, const SelectOrganScreen());
                             },
                             style: OutlinedButton.styleFrom(
                               side: const BorderSide(color: MyColor.pink),
@@ -156,12 +274,8 @@ class _PatientGenderScreen extends State<PatientGenderScreen> {
                       const SizedBox(
                         height: 10,
                       ),
-                      LinearPercentIndicator(
-                        width: 320,
-                        lineHeight: 4,
-                        percent: 0.25,
-                        backgroundColor: MyColor.lightGrey,
-                        progressColor: MyColor.pink,
+                      LinearPercentIndicatorScreen(
+                        precent: 0.50000001,
                       ),
                     ],
                   ),
@@ -173,15 +287,4 @@ class _PatientGenderScreen extends State<PatientGenderScreen> {
       ),
     );
   }
-}
-
-Widget myRadioButton({String? title, int? value, Function? onChanged}) {
-  var groupValue;
-  var onChanged;
-  return RadioListTile(
-    value: value,
-    groupValue: groupValue,
-    onChanged: onChanged,
-    title: Text("$title"),
-  );
 }
