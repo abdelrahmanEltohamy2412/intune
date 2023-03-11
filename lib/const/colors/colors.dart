@@ -21,9 +21,4 @@ class MyColor {
 //لما تخلصي شغلك
 //commit
 //push
-//يارب تفتكري
-//يارب نخلص
-//hhhhhhhhhh
-//he[okhpoekph
-//تعبتيني
-//gigi
+
