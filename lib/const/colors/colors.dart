@@ -13,17 +13,14 @@ class MyColor {
   static const Color darkGray = Color(0xff707070);
   static const Color lightGrey = Color(0xffEDEDED);
 }
+//لما انتي تفتحي
 // 1. checkout master
 // 2. update master
-// 3. create branch from master
 // 4. code
 // 5. commit
-// 6. checkout master
-// 7. update master
-// 8. checkout your local branch
-// 9. Merge master with my current branch
 // 10.Push
-// 11.Create pull request
 
-//love you
-//tito msA
+//لما تخلصي شغلك
+//commit
+//push
+//يارب تفتكري
