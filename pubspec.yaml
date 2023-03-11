@@ -41,7 +41,7 @@ dependencies:
   validators: ^2.0.0
   font_awesome_flutter: ^10.4.0
   flutter_verification_code: ^1.1.6
-  pinput:
+  pinput: ^2.2.31
   image_picker: ^0.8.6+4
   percent_indicator: ^4.2.3
   flutter_svg:
