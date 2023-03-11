@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:intune/const/Navigetor/Navigetor.dart';
 import 'package:intune/const/colors/colors.dart';
+import 'package:intune/screens/BottomNavigationBar/artices.dart';
 
 import '../../const/TextForm_screen/TextForm_Screen.dart';
 
@@ -79,41 +81,45 @@ class _HomeState extends State<Home> {
           ),
           Column(
             children: [
-              Container(
-                height: 147,
-                width: 320,
-                decoration: const BoxDecoration(
-                    color: MyColor.green,
-                    borderRadius: BorderRadius.all(Radius.circular(20))),
-                child: Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child:
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          SvgPicture.asset('lib/assets/images/Group 475.svg'),
-                          SvgPicture.asset('lib/assets/images/Group 476.svg'),
-                        ],
-                      ),
-                      SizedBox(height: 15,),
-                      Align(alignment: Alignment.topLeft,
-                        child: Text(
-                          'Related Articles about heart',
-                          style: TextStyle(fontSize: 18,),
+              InkWell(onTap: (){
+                navigateTo(context, Articles());
+              },
+                child: Container(
+                  height: 147,
+                  width: 320,
+                  decoration: const BoxDecoration(
+                      color: MyColor.green,
+                      borderRadius: BorderRadius.all(Radius.circular(20))),
+                  child: Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child:
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            SvgPicture.asset('lib/assets/images/Group 475.svg'),
+                            SvgPicture.asset('lib/assets/images/Group 476.svg'),
+                          ],
                         ),
-                      ),
-                      SizedBox(height: 5,),
-                      Align(alignment: Alignment.topLeft,
-                        child: Text(
-                          'Short Description',
-                          style: TextStyle(fontSize: 12,),
+                        SizedBox(height: 15,),
+                        Align(alignment: Alignment.topLeft,
+                          child: Text(
+                            'Related Articles about heart',
+                            style: TextStyle(fontSize: 18,),
+                          ),
                         ),
-                      ),
+                        SizedBox(height: 5,),
+                        Align(alignment: Alignment.topLeft,
+                          child: Text(
+                            'Short Description',
+                            style: TextStyle(fontSize: 12,),
+                          ),
+                        ),
 
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),
