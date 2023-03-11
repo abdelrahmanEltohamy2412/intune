@@ -16,9 +16,7 @@ class MyColor {
 //لما انتي تفتحي
 // 1. checkout master
 // 2. update master
-// 4. code
-// 5. commit
-// 10.Push
+// code
 
 //لما تخلصي شغلك
 //commit
