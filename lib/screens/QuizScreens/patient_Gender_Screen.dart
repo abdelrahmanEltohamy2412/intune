@@ -247,7 +247,7 @@ class _PatientGenderScreen extends State<PatientGenderScreen> {
                       ),
                       Center(
                         child: Container(
-                          width: double.infinity,
+                          width: 320,
                           height: 80,
                           child: OutlinedButton(
                             onPressed: () {

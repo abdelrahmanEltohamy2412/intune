@@ -9,7 +9,7 @@ class LinearPercentIndicatorScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LinearPercentIndicator(
-      width: 350,
+      width: 320,
       lineHeight: 4,
       percent: precent,
       backgroundColor: MyColor.lightGrey,

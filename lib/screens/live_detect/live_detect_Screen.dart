@@ -77,7 +77,7 @@ class _LiveDetectScreenState extends State<LiveDetectScreen> {
                       topLeft: Radius.circular(50),
                     )),
                 child: Padding(
-                  padding: const EdgeInsets.all(20),
+                  padding: const EdgeInsets.all(5),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
