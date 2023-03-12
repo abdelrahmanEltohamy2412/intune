@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intune/const/Linear_PercentIndicator/Linear_PercentIndicator.dart';
+import 'package:intune/const/Navigetor/Navigetor.dart';
 import 'package:intune/const/colors/colors.dart';
 import 'package:intune/screens/QuizScreens/patient_Gender_Screen.dart';
 import 'package:intune/screens/QuizScreens/select_heart/heart_Photo_position_screen.dart';
+import 'package:intune/screens/live_detect/live_detect_Screen.dart';
 import 'package:intune/screens/signScreens/signScreen.dart';
 
 import '../../../const/Fill_button/fill_button_screen.dart';
@@ -26,8 +28,8 @@ class _HeartPositionScreen extends State<HeartPositionScreen> {
           actions: [
             ElevatedButton(
               onPressed: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (_) => SignScreen()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (_) => const SignScreen()));
               },
               style: ButtonStyle(
                   backgroundColor:
@@ -117,7 +119,7 @@ class _HeartPositionScreen extends State<HeartPositionScreen> {
                                 selected: false,
                               ),
                             )),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         Container(
@@ -144,7 +146,7 @@ class _HeartPositionScreen extends State<HeartPositionScreen> {
                                 selected: false,
                               ),
                             )),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         Container(
@@ -171,7 +173,7 @@ class _HeartPositionScreen extends State<HeartPositionScreen> {
                                 selected: false,
                               ),
                             )),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         Container(
@@ -198,13 +200,15 @@ class _HeartPositionScreen extends State<HeartPositionScreen> {
                                 selected: false,
                               ),
                             )),
-                        SizedBox(
+                        const SizedBox(
                           height: 120,
                         ),
                         Center(
                           child: FillButtonScreen(
                             text: "Next",
-                            onpressed: () {},
+                            onpressed: () {
+                              navigateTo(context, LiveDetectScreen());
+                            },
                           ),
                         ),
                         const SizedBox(

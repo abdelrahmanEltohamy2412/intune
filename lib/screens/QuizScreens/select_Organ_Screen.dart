@@ -2,15 +2,13 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:image_picker/image_picker.dart';
+
 import 'package:intune/const/Navigetor/Navigetor.dart';
 import 'package:intune/const/colors/colors.dart';
-import 'package:intune/screens/QuizScreens/patient_Form_Screen.dart';
+
 import 'package:intune/screens/QuizScreens/patient_Gender_Screen.dart';
 import 'package:intune/screens/QuizScreens/select_heart/heart_Photo_position_screen.dart';
 import 'package:intune/screens/QuizScreens/select_lung/lung_view_screen.dart';
-import 'package:intune/screens/signScreens/signScreen.dart';
-import 'package:percent_indicator/linear_percent_indicator.dart';
 
 import '../../const/Linear_PercentIndicator/Linear_PercentIndicator.dart';
 
