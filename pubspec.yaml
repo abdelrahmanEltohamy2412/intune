@@ -52,7 +52,8 @@ dependencies:
   google_fonts: ^3.0.1
   pinput: ^2.2.21
   lottie: ^2.2.0
-  nice_intro:
+  nice_intro: ^0.2.1
+
 
 
 
