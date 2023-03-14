@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intune/const/colors/colors.dart';
+
 import 'package:nice_intro/intro_screen.dart';
 import 'package:nice_intro/intro_screens.dart';
 
@@ -32,22 +33,22 @@ class _OnBoardingScreenState extends State<OnBoardingScreen>
             headerBgColor: MyColor.lightGreen,
             title: 'Welcome to intune ',
             description:
-                'intune is smart stethoscope combined with 3ECG bands and temperature sensor',
+            'intune is smart stethoscope combined with 3ECG bands and temperature sensor',
             imageAsset:
-                'lib/assets/images/—Pngtree—smart medical illustration of sick_6574169.png',
+            'lib/assets/images/—Pngtree—smart medical illustration of sick_6574169.png',
           ),
           IntroScreen(
             headerBgColor: MyColor.lightGreen,
             title: 'The diagnosis become easier',
             description:
-                'intune help you to detect the heart and respiratory system Diseases in easy way',
+            'intune help you to detect the heart and respiratory system Diseases in easy way',
             imageAsset: 'lib/assets/images/Group 61.png',
           ),
           IntroScreen(
             headerBgColor: MyColor.lightGreen,
             title: 'Keep your medical information ',
             description:
-                'Intune enable you to make a medical history to save the results of diagnosis',
+            'Intune enable you to make a medical history to save the results of diagnosis',
             imageAsset: "",
           )
         ]);
