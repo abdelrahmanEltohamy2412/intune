@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:intune/const/Navigetor/Navigetor.dart';
 import 'package:intune/const/colors/colors.dart';
 import 'package:intune/screens/signScreens/signScreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -9,15 +8,15 @@ class OnboardModel {
   String img;
   String text;
   String desc;
-  Color bg;
-  Color button;
+  Color? bg;
+  late Color? button;
 
   OnboardModel({
     required this.img,
     required this.text,
     required this.desc,
-    required this.bg,
-    required this.button,
+     this.bg,
+      this.button,
   });
 }
 
@@ -37,24 +36,21 @@ class _OnBoardState extends State<OnBoard> {
       text: "Welcome to intune",
       desc:
       "intune is smart stethoscope combined with 3ECG bands and temperature sensor",
-      bg: Colors.white,
-      button: Color(0xFF4756DF),
+
     ),
     OnboardModel(
       img: 'lib/assets/images/Group 61.png',
       text: "The diagnosis become easier",
       desc:
       "intune help you to detect the heart and respiratory system Diseases in easy way",
-      bg: Color(0xFF4756DF),
-      button: Colors.blue,
+
     ),
     OnboardModel(
       img: 'lib/assets/images/Group 62.png',
       text: "Keep your medical information ",
       desc:
       "Intune enable you to make a medical history to save the results of diagnosi",
-      bg: Colors.white,
-      button: Color(0xFF4756DF),
+
     ),
   ];
 
@@ -75,7 +71,7 @@ class _OnBoardState extends State<OnBoard> {
     int isViewed = 0;
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setInt('onBoard', isViewed);
-    print(prefs.getInt('onBoard'));
+
   }
 
   @override
@@ -85,13 +81,13 @@ class _OnBoardState extends State<OnBoard> {
       appBar: AppBar(
         backgroundColor:  MyColor.lightGreen,
         elevation: 0.0,
-        leading:  Icon(Icons.arrow_back_outlined),
+        leading:  const Icon(Icons.arrow_back_outlined),
         actions: [
           TextButton(
             onPressed: () {
               _storeOnboardInfo();
               Navigator.pushReplacement(
-                  context, MaterialPageRoute(builder: (context) => SignScreen()));
+                  context, MaterialPageRoute(builder: (context) => const SignScreen()));
             },
             child: const Text(
               "Skip",
@@ -160,7 +156,7 @@ class _OnBoardState extends State<OnBoard> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Container(
+                            SizedBox(
                               height: 10.0,
                               child: ListView.builder(
                                 itemCount: screens.length,
@@ -188,14 +184,14 @@ class _OnBoardState extends State<OnBoard> {
                               ),
                             ),
                             InkWell(
-                              onTap: () async {
+                              onTap: ()  {
 
                                 if (index == screens.length - 1) {
-                                  await _storeOnboardInfo();
+                                   _storeOnboardInfo();
                                   Navigator.pushReplacement(
                                       _,
                                       MaterialPageRoute(
-                                          builder: (_) => const SignScreen()));
+                                          builder: (context) => const SignScreen()));
                                 }
 
                                 _pageController.nextPage(
