@@ -12,6 +12,8 @@ class MyColor {
   static const Color gray = Color(0xff8F9BB3);
   static const Color darkGray = Color(0xff707070);
   static const Color lightGrey = Color(0xffEDEDED);
+  static const Color OnbColors = Color(0xffC5CEE0);
+
 }
 //لما انتي تفتحي
 // 1. checkout master

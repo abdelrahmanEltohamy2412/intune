@@ -23,7 +23,7 @@ class _SplashScreenState extends State<SplashScreen> {
           //splash screen won't show on back button press
           //navigation to onBoarding page.
           builder: (context) {
-        return OnBoardingScreen();
+        return const OnBoard();
       }));
     });
 

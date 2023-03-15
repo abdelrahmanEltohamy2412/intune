@@ -1,58 +1,245 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:intune/const/Navigetor/Navigetor.dart';
 import 'package:intune/const/colors/colors.dart';
+import 'package:intune/screens/signScreens/signScreen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:nice_intro/intro_screen.dart';
-import 'package:nice_intro/intro_screens.dart';
 
-import '../signScreens/signScreen.dart';
+class OnboardModel {
+  String img;
+  String text;
+  String desc;
+  Color bg;
+  Color button;
 
-class OnBoardingScreen extends StatefulWidget {
-  const OnBoardingScreen({Key? key}) : super(key: key);
-
-  @override
-  State<OnBoardingScreen> createState() => _OnBoardingScreenState();
+  OnboardModel({
+    required this.img,
+    required this.text,
+    required this.desc,
+    required this.bg,
+    required this.button,
+  });
 }
 
-class _OnBoardingScreenState extends State<OnBoardingScreen>
-    with TickerProviderStateMixin {
+class OnBoard extends StatefulWidget {
+  const OnBoard({super.key});
+
+  @override
+  _OnBoardState createState() => _OnBoardState();
+}
+
+class _OnBoardState extends State<OnBoard> {
+  int currentIndex = 0;
+  late PageController _pageController;
+  List<OnboardModel> screens = <OnboardModel>[
+    OnboardModel(
+      img: 'lib/assets/images/Group 60.png',
+      text: "Welcome to intune",
+      desc:
+      "intune is smart stethoscope combined with 3ECG bands and temperature sensor",
+      bg: Colors.white,
+      button: Color(0xFF4756DF),
+    ),
+    OnboardModel(
+      img: 'lib/assets/images/Group 61.png',
+      text: "The diagnosis become easier",
+      desc:
+      "intune help you to detect the heart and respiratory system Diseases in easy way",
+      bg: Color(0xFF4756DF),
+      button: Colors.blue,
+    ),
+    OnboardModel(
+      img: 'lib/assets/images/Group 62.png',
+      text: "Keep your medical information ",
+      desc:
+      "Intune enable you to make a medical history to save the results of diagnosi",
+      bg: Colors.white,
+      button: Color(0xFF4756DF),
+    ),
+  ];
+
+  @override
+  void initState() {
+    _pageController = PageController(initialPage: 0);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
+
+  _storeOnboardInfo() async {
+
+    int isViewed = 0;
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setInt('onBoard', isViewed);
+    print(prefs.getInt('onBoard'));
+  }
+
   @override
   Widget build(BuildContext context) {
-    var screens = IntroScreens(
-        skipText: '',
-        containerBg: MyColor.lightGreen,
-        onDone: () => Navigator.push(
-            context, MaterialPageRoute(builder: (_) => const SignScreen())),
-        inactiveDotColor: Colors.white,
-        footerBgColor: Colors.white,
-        activeDotColor: Colors.black,
-        footerRadius: 18.0,
-        textColor: Colors.black,
-        slides: [
-          IntroScreen(
-            headerBgColor: MyColor.lightGreen,
-            title: 'Welcome to intune ',
-            description:
-            'intune is smart stethoscope combined with 3ECG bands and temperature sensor',
-            imageAsset:
-            'lib/assets/images/—Pngtree—smart medical illustration of sick_6574169.png',
-          ),
-          IntroScreen(
-            headerBgColor: MyColor.lightGreen,
-            title: 'The diagnosis become easier',
-            description:
-            'intune help you to detect the heart and respiratory system Diseases in easy way',
-            imageAsset: 'lib/assets/images/Group 61.png',
-          ),
-          IntroScreen(
-            headerBgColor: MyColor.lightGreen,
-            title: 'Keep your medical information ',
-            description:
-            'Intune enable you to make a medical history to save the results of diagnosis',
-            imageAsset: "",
+    return Scaffold(
+      backgroundColor: MyColor.lightGreen,
+      appBar: AppBar(
+        backgroundColor:  MyColor.lightGreen,
+        elevation: 0.0,
+        leading:  Icon(Icons.arrow_back_outlined),
+        actions: [
+          TextButton(
+            onPressed: () {
+              _storeOnboardInfo();
+              Navigator.pushReplacement(
+                  context, MaterialPageRoute(builder: (context) => SignScreen()));
+            },
+            child: const Text(
+              "Skip",
+              style: TextStyle(
+                color: Colors.white
+              ),
+            ),
           )
-        ]);
+        ],
+      ),
+      body:
+      PageView.builder(
+          itemCount: screens.length,
+          controller: _pageController,
+          physics: const ScrollPhysics(),
+          onPageChanged: (int index) {
+            setState(() {
+              currentIndex = index;
+            });
+          },
+          itemBuilder: (_, index) {
+            return Column(
 
-    return Scaffold(body: screens);
+              children: [
+                // Image.asset(screens[index].img),
+                Container(
+                  color:MyColor.lightGreen,
+                  height: 340,
+                  width: double.infinity,
+                  child: Image.asset(screens[index].img, ),
+                ),
+                const SizedBox(
+                  height: 44,
+                ),
+                Container(
+                  height: 323,
+                  width: double.infinity,
+                  decoration: const BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(30),
+                          topLeft: Radius.circular(30))),
+                  child: Padding(
+                    padding: const EdgeInsets.all(17.0),
+                    child: Column(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          screens[index].text,
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                              fontSize: 27.0,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'Poppins',
+                              color:  Colors.black
+                          ),
+                        ),
+                        Text(
+                          screens[index].desc,
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                              fontSize: 14.0,
+                              fontFamily: 'Poppins',
+                              color: Colors.black
+                          ),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                              height: 10.0,
+                              child: ListView.builder(
+                                itemCount: screens.length,
+                                shrinkWrap: true,
+                                scrollDirection: Axis.horizontal,
+                                itemBuilder: (context, index) {
+                                  return Row(
+
+                                      children: [
+                                        Container(
+                                          margin: const EdgeInsets.symmetric(
+                                              horizontal: 3.0),
+                                          width: currentIndex == index ? 24 : 8,
+                                          height: 8,
+                                          decoration: BoxDecoration(
+                                            color: currentIndex == index
+                                                ? MyColor.dark
+                                                : MyColor.OnbColors,
+                                            borderRadius:
+                                            BorderRadius.circular(10.0),
+                                          ),
+                                        ),
+                                      ]);
+                                },
+                              ),
+                            ),
+                            InkWell(
+                              onTap: () async {
+
+                                if (index == screens.length - 1) {
+                                  await _storeOnboardInfo();
+                                  Navigator.pushReplacement(
+                                      _,
+                                      MaterialPageRoute(
+                                          builder: (_) => const SignScreen()));
+                                }
+
+                                _pageController.nextPage(
+                                  duration: const Duration(milliseconds: 300),
+                                  curve: Curves.ease,
+                                );
+                              },
+                              child: Container(
+                                height: 55,
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 15.0, vertical: 10),
+                                decoration: BoxDecoration(
+                                    color: MyColor.lightPink,
+                                    borderRadius: BorderRadius.circular(15.0)),
+                                child: Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: const [
+                                      Text(
+                                        "Next",
+                                        style: TextStyle(
+                                            fontSize: 16.0,
+                                            color:
+                                            Colors.white
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: 15.0,
+                                      ),
+                                      Icon(
+                                        Icons.arrow_forward_sharp,
+                                        color: Colors.white,
+                                      )
+                                    ]),
+                              ),
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            );
+          }),
+    );
   }
 }

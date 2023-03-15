@@ -53,6 +53,7 @@ dependencies:
   pinput: ^2.2.21
   lottie: ^2.2.0
   nice_intro:
+  shared_preferences: ^2.0.18
 
 
 
