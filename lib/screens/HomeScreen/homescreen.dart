@@ -5,6 +5,7 @@ import 'package:intune/const/colors/colors.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import '../BottomNavigationBar/Home.dart';
 import '../BottomNavigationBar/chat.dart';
+import '../BottomNavigationBar/personal_info.dart';
 import '../QuizScreens/patient_Photo_Screen.dart';
 
 class BottomBarScreen extends StatefulWidget {
@@ -34,7 +35,7 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
         'page': const PatientPhotoScreen(),
       },
       {
-        'page': const PatientPhotoScreen(),
+        'page': const PersonInfoScreen(),
       },
     ];
     super.initState();

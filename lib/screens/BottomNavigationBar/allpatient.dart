@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intune/const/Navigetor/Navigetor.dart';
 
 
 import '../../const/colors/colors.dart';
+import 'Patient_Record.dart';
 
 class AllPatientScreen extends StatefulWidget {
   const AllPatientScreen({Key? key}) : super(key: key);
@@ -101,78 +103,82 @@ class _AllPatientScreenState extends State<AllPatientScreen> {
                     separatorBuilder: (BuildContext context, int index) => const Divider(thickness: 0,),
                     itemCount: 10,
                     itemBuilder: (c, int index) {
-                      return Container(
-                        width: 340,
-                        height: 115,
-                        decoration: const BoxDecoration(
-                          color: Colors.white,
-                        ),
-                        child: Row(
-                          children: [
-                            const Padding(
-                              padding: EdgeInsets.only(left: 10),
-                              child: CircleAvatar(
-                                radius: 40,
-                                backgroundImage: AssetImage(
-                                  'lib/assets/images/1)online.png',
+                      return InkWell(onTap: (){
+                        navigateTo(context, PatientRecord());
+                      },
+                        child: Container(
+                          width: 340,
+                          height: 115,
+                          decoration: const BoxDecoration(
+                            color: Colors.white,
+                          ),
+                          child: Row(
+                            children: [
+                              const Padding(
+                                padding: EdgeInsets.only(left: 10),
+                                child: CircleAvatar(
+                                  radius: 40,
+                                  backgroundImage: AssetImage(
+                                    'lib/assets/images/1)online.png',
+                                  ),
                                 ),
                               ),
-                            ),
 
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Padding(
-                                    padding: const EdgeInsets.only(left: 10),
-                                    child: Text(
-                                      'Laila Elwi',
-                                      style: GoogleFonts.openSans(
-                                        textStyle: const TextStyle(
-                                            fontSize: 18,
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.w400),
-                                      ),
-                                    )),
-                                const SizedBox(
-                                  width: 10,
-                                ),
-                                Padding(
-                                    padding: const EdgeInsets.only(left: 10),
-                                    child: Text(
-                                      'Chest patien',
-                                      style: GoogleFonts.openSans(
-                                        textStyle: const TextStyle(
-                                            fontSize: 12,
-                                            color: MyColor.gray,
-                                            fontWeight: FontWeight.w400),
-                                      ),
-                                    )),
-                              ],
-                            ),
-                            const SizedBox(
-                              width: 110,
-                            ),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                IconButton(
-                                    onPressed: () {},
-                                    icon: const Icon(
-                                      Icons.file_copy_outlined,
-                                      color: MyColor.lightPink,
-                                    )),
-                                Text(
-                                  '(12)',
-                                  style: GoogleFonts.poppins(
-                                    textStyle: const TextStyle(
-                                        fontSize: 12,
-                                        color: MyColor.gray,
-                                        fontWeight: FontWeight.w400),
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Padding(
+                                      padding: const EdgeInsets.only(left: 10),
+                                      child: Text(
+                                        'Laila Elwi',
+                                        style: GoogleFonts.openSans(
+                                          textStyle: const TextStyle(
+                                              fontSize: 18,
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.w400),
+                                        ),
+                                      )),
+                                  const SizedBox(
+                                    width: 10,
                                   ),
-                                )
-                              ],
-                            )
-                          ],
+                                  Padding(
+                                      padding: const EdgeInsets.only(left: 10),
+                                      child: Text(
+                                        'Chest patien',
+                                        style: GoogleFonts.openSans(
+                                          textStyle: const TextStyle(
+                                              fontSize: 12,
+                                              color: MyColor.gray,
+                                              fontWeight: FontWeight.w400),
+                                        ),
+                                      )),
+                                ],
+                              ),
+                              const SizedBox(
+                                width: 110,
+                              ),
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  IconButton(
+                                      onPressed: () {},
+                                      icon: const Icon(
+                                        Icons.file_copy_outlined,
+                                        color: MyColor.lightPink,
+                                      )),
+                                  Text(
+                                    '(12)',
+                                    style: GoogleFonts.poppins(
+                                      textStyle: const TextStyle(
+                                          fontSize: 12,
+                                          color: MyColor.gray,
+                                          fontWeight: FontWeight.w400),
+                                    ),
+                                  )
+                                ],
+                              )
+                            ],
+                          ),
                         ),
                       );
                     }),)
