@@ -8,7 +8,7 @@ class RateContainerScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 100,
-      height: 40,
+      height: 35,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
           border: Border.all(color: Color(0xff707070))),

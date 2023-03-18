@@ -2,19 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intune/const/colors/colors.dart';
+import 'package:intune/screens/BottomNavigationBar/Home.dart';
 import 'package:intune/screens/QuizScreens/select_heart/heart_position_Screen.dart';
 import 'package:audioplayers/audioplayers.dart';
 import '../../const/Navigetor/Navigetor.dart';
 import '../../const/rate_container/rate_container_screen.dart';
 
-class LiveDetectScreen extends StatefulWidget {
-  const LiveDetectScreen({Key? key}) : super(key: key);
+class LiveDetectGreyScreen extends StatefulWidget {
+  const LiveDetectGreyScreen({Key? key}) : super(key: key);
 
   @override
-  State<LiveDetectScreen> createState() => _LiveDetectScreenState();
+  State<LiveDetectGreyScreen> createState() => _LiveDetectGreyScreenState();
 }
 
-class _LiveDetectScreenState extends State<LiveDetectScreen> {
+class _LiveDetectGreyScreenState extends State<LiveDetectGreyScreen> {
   bool isPlaying = false;
   final audioPlayer = AudioPlayer();
   Duration duration = Duration.zero;
@@ -55,7 +56,7 @@ class _LiveDetectScreenState extends State<LiveDetectScreen> {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
-            navigateTo(context, const HeartPositionScreen());
+            navigateTo(context, Home());
           },
         ),
         backgroundColor: MyColor.lightGreen,
@@ -159,35 +160,33 @@ class _LiveDetectScreenState extends State<LiveDetectScreen> {
                                 ),
                               )),
                           Container(
-                              width: 150,
-                              height: 50,
-                              decoration: BoxDecoration(
-                                border: Border.all(color: MyColor.green),
-                                borderRadius: BorderRadius.circular(10),
-                                color: MyColor.green,
+                            width: 150,
+                            height: 50,
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Color(0xffE9E8EE)),
+                              borderRadius: BorderRadius.circular(10),
+                              color: Color(0xffE9E8EE),
+                            ),
+                            child: Center(
+                              child: Text(
+                                "Save",
+                                style: TextStyle(
+                                    fontSize: 14, color: Colors.white),
                               ),
-                              child: MaterialButton(
-                                onPressed: () {},
-                                child: const Text(
-                                  "Save",
-                                  style: TextStyle(
-                                      fontSize: 14, color: Colors.white),
-                                ),
-                              )),
+                            ),
+                          ),
                           Container(
                               width: 65,
                               height: 50,
                               decoration: BoxDecoration(
-                                border: Border.all(color: Color(0xffFF3131)),
+                                border: Border.all(color: Color(0xffE9E8EE)),
                                 borderRadius: BorderRadius.circular(10),
-                                color: Color(0xffFF3131),
+                                color: Color(0xffE9E8EE),
                               ),
-                              child: MaterialButton(
-                                  onPressed: () {},
-                                  child: Center(
-                                    child: SvgPicture.asset(
-                                        "lib/assets/images/Group 719.svg"),
-                                  ))),
+                              child: Center(
+                                child: SvgPicture.asset(
+                                    "lib/assets/images/Group 719.svg"),
+                              )),
                         ],
                       )
                     ],

@@ -53,6 +53,7 @@ dependencies:
   shared_preferences: ^2.0.18
   intl:
   grouped_list:
+  share: ^2.0.4
 
 
 
