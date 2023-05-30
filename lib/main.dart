@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intune/screens/signScreens/splash.dart';
@@ -7,6 +8,7 @@ void main() async {
     statusBarColor: Colors.transparent,
   ));
   WidgetsFlutterBinding.ensureInitialized();
+
 
   runApp(MyApp());
 }
