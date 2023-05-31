@@ -1,5 +1,5 @@
-
 import 'package:flutter/material.dart';
+import 'package:intune/const/colors/colors.dart';
 
 import '../../../constants.dart';
 import '../../../models/ChatMessage.dart';
@@ -24,7 +24,7 @@ class AudioMessage extends StatelessWidget {
         children: [
           Icon(
             Icons.play_arrow,
-            color: message!.isSender ? Colors.white : kPrimaryColor,
+            color: message!.isSender ? Colors.white : MyColor.pink,
           ),
           Expanded(
             child: Padding(
@@ -39,7 +39,7 @@ class AudioMessage extends StatelessWidget {
                     height: 2,
                     color: message!.isSender
                         ? Colors.white
-                        : kPrimaryColor.withOpacity(0.4),
+                        : MyColor.pink.withOpacity(0.4),
                   ),
                   Positioned(
                     left: 0,

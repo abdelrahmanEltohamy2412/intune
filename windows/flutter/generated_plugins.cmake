@@ -4,8 +4,6 @@
 
 list(APPEND FLUTTER_PLUGIN_LIST
   audioplayers_windows
-  firebase_core
-  modal_progress_hud_nsn
   smart_auth
 )
 

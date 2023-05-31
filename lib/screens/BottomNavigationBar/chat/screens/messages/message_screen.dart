@@ -1,6 +1,6 @@
-
 import 'package:flutter/material.dart';
 
+import '../../../../../const/colors/colors.dart';
 import '../../constants.dart';
 import 'components/body.dart';
 
@@ -17,20 +17,23 @@ class MessagesScreen extends StatelessWidget {
 
   AppBar buildAppBar() {
     return AppBar(
+      backgroundColor: MyColor.lightGreen,
       automaticallyImplyLeading: false,
       title: Row(
         children: [
           const BackButton(),
           const CircleAvatar(
-            backgroundImage: AssetImage("assets/images/user_2.png"),
+            backgroundImage: AssetImage("lib/assets/images/man.png"),
           ),
           const SizedBox(width: kDefaultPadding * 0.75),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: const [
-              Text(
-                "Kristin Watson",
-                style: TextStyle(fontSize: 16),
+              Center(
+                child: Text(
+                  "Dr.Ahmed Ali",
+                  style: TextStyle(fontSize: 16),
+                ),
               ),
               Text(
                 "Active 3m ago",
@@ -40,17 +43,6 @@ class MessagesScreen extends StatelessWidget {
           )
         ],
       ),
-      actions: [
-        IconButton(
-          icon: const Icon(Icons.local_phone),
-          onPressed: () {},
-        ),
-        IconButton(
-          icon: const Icon(Icons.videocam),
-          onPressed: () {},
-        ),
-        const SizedBox(width: kDefaultPadding / 2),
-      ],
     );
   }
 }

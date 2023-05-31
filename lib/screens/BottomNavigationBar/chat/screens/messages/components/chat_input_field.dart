@@ -1,16 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:intune/const/colors/colors.dart';
 
 import '../../../constants.dart';
+import '../../../models/Chat.dart';
+import '../../../models/ChatMessage.dart';
 
-class ChatInputField extends StatelessWidget {
-  const ChatInputField({
+class ChatInputField extends StatefulWidget {
+  ChatInputField({
     Key? key,
   }) : super(key: key);
 
   @override
+  State<ChatInputField> createState() => _ChatInputFieldState();
+}
+
+class _ChatInputFieldState extends State<ChatInputField> {
+  var fieldText = TextEditingController();
+
+  @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(
+      padding: EdgeInsets.symmetric(
         horizontal: kDefaultPadding,
         vertical: kDefaultPadding / 2,
       ),
@@ -27,7 +37,6 @@ class ChatInputField extends StatelessWidget {
       child: SafeArea(
         child: Row(
           children: [
-            const Icon(Icons.mic, color: kPrimaryColor),
             const SizedBox(width: kDefaultPadding),
             Expanded(
               child: Container(
@@ -40,40 +49,35 @@ class ChatInputField extends StatelessWidget {
                 ),
                 child: Row(
                   children: [
-                    Icon(
-                      Icons.sentiment_satisfied_alt_outlined,
-                      color: Theme.of(context)
-                          .textTheme
-                          .bodyLarge!
-                          .color!
-                          .withOpacity(0.64),
-                    ),
-                    const SizedBox(width: kDefaultPadding / 4),
-                    const Expanded(
+                    SizedBox(width: kDefaultPadding / 4),
+                    Expanded(
                       child: TextField(
                         decoration: InputDecoration(
                           hintText: "Type message",
                           border: InputBorder.none,
                         ),
+                        controller: fieldText,
+                        onSubmitted: (word) {
+                          final message = ChatMessage(
+                            text: word,
+                            isSender: true,
+                            messageType: ChatMessageType.text,
+                            messageStatus: MessageStatus.viewed,
+                          );
+                          setState(
+                            () => demeChatMessages.add(message),
+                          );
+                        },
                       ),
                     ),
-                    Icon(
-                      Icons.attach_file,
-                      color: Theme.of(context)
-                          .textTheme
-                          .bodyLarge!
-                          .color!
-                          .withOpacity(0.64),
-                    ),
+                    IconButton(
+                        icon: Icon(
+                          Icons.send,
+                          color: MyColor.pink,
+                        ),
+                        onPressed: () {}),
                     const SizedBox(width: kDefaultPadding / 4),
-                    Icon(
-                      Icons.camera_alt_outlined,
-                      color: Theme.of(context)
-                          .textTheme
-                          .bodyLarge!
-                          .color!
-                          .withOpacity(0.64),
-                    ),
+                    // Icon(Icons.camera_alt_outlined, color: MyColor.pink),
                   ],
                 ),
               ),

@@ -3,7 +3,6 @@ import 'package:intune/const/colors/colors.dart';
 import 'package:intune/screens/signScreens/signScreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-
 class OnboardModel {
   String img;
   String text;
@@ -15,8 +14,8 @@ class OnboardModel {
     required this.img,
     required this.text,
     required this.desc,
-     this.bg,
-      this.button,
+    this.bg,
+    this.button,
   });
 }
 
@@ -35,22 +34,19 @@ class _OnBoardState extends State<OnBoard> {
       img: 'lib/assets/images/Group 60.png',
       text: "Welcome to intune",
       desc:
-      "intune is smart stethoscope combined with 3ECG bands and temperature sensor",
-
+          "intune is smart stethoscope combined with 3ECG bands and temperature sensor",
     ),
     OnboardModel(
       img: 'lib/assets/images/Group 61.png',
       text: "The diagnosis become easier",
       desc:
-      "intune help you to detect the heart and respiratory system Diseases in easy way",
-
+          "intune help you to detect the heart and respiratory system Diseases in easy way",
     ),
     OnboardModel(
       img: 'lib/assets/images/Group 62.png',
       text: "Keep your medical information ",
       desc:
-      "Intune enable you to make a medical history to save the results of diagnosi",
-
+          "Intune enable you to make a medical history to save the results of diagnosi",
     ),
   ];
 
@@ -67,11 +63,9 @@ class _OnBoardState extends State<OnBoard> {
   }
 
   _storeOnboardInfo() async {
-
     int isViewed = 0;
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setInt('onBoard', isViewed);
-
   }
 
   @override
@@ -79,27 +73,24 @@ class _OnBoardState extends State<OnBoard> {
     return Scaffold(
       backgroundColor: MyColor.lightGreen,
       appBar: AppBar(
-        backgroundColor:  MyColor.lightGreen,
+        backgroundColor: MyColor.lightGreen,
         elevation: 0.0,
-        leading:  const Icon(Icons.arrow_back_outlined),
+        leading: const Icon(Icons.arrow_back_outlined),
         actions: [
           TextButton(
             onPressed: () {
               _storeOnboardInfo();
-              Navigator.pushReplacement(
-                  context, MaterialPageRoute(builder: (context) => const SignScreen()));
+              Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (context) => const SignScreen()));
             },
             child: const Text(
               "Skip",
-              style: TextStyle(
-                color: Colors.white
-              ),
+              style: TextStyle(color: Colors.white),
             ),
           )
         ],
       ),
-      body:
-      PageView.builder(
+      body: PageView.builder(
           itemCount: screens.length,
           controller: _pageController,
           physics: const ScrollPhysics(),
@@ -110,14 +101,15 @@ class _OnBoardState extends State<OnBoard> {
           },
           itemBuilder: (_, index) {
             return Column(
-
               children: [
                 // Image.asset(screens[index].img),
                 Container(
-                  color:MyColor.lightGreen,
-                  height: 340,
+                  color: MyColor.lightGreen,
+                  height: 330,
                   width: double.infinity,
-                  child: Image.asset(screens[index].img, ),
+                  child: Image.asset(
+                    screens[index].img,
+                  ),
                 ),
                 const SizedBox(
                   height: 44,
@@ -132,7 +124,8 @@ class _OnBoardState extends State<OnBoard> {
                           topLeft: Radius.circular(30))),
                   child: Padding(
                     padding: const EdgeInsets.all(17.0),
-                    child: Column(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
                           screens[index].text,
@@ -141,8 +134,7 @@ class _OnBoardState extends State<OnBoard> {
                               fontSize: 27.0,
                               fontWeight: FontWeight.bold,
                               fontFamily: 'Poppins',
-                              color:  Colors.black
-                          ),
+                              color: Colors.black),
                         ),
                         Text(
                           screens[index].desc,
@@ -150,8 +142,7 @@ class _OnBoardState extends State<OnBoard> {
                           style: const TextStyle(
                               fontSize: 14.0,
                               fontFamily: 'Poppins',
-                              color: Colors.black
-                          ),
+                              color: Colors.black),
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -163,35 +154,33 @@ class _OnBoardState extends State<OnBoard> {
                                 shrinkWrap: true,
                                 scrollDirection: Axis.horizontal,
                                 itemBuilder: (context, index) {
-                                  return Row(
-
-                                      children: [
-                                        Container(
-                                          margin: const EdgeInsets.symmetric(
-                                              horizontal: 3.0),
-                                          width: currentIndex == index ? 24 : 8,
-                                          height: 8,
-                                          decoration: BoxDecoration(
-                                            color: currentIndex == index
-                                                ? MyColor.dark
-                                                : MyColor.OnbColors,
-                                            borderRadius:
+                                  return Row(children: [
+                                    Container(
+                                      margin: const EdgeInsets.symmetric(
+                                          horizontal: 3.0),
+                                      width: currentIndex == index ? 24 : 8,
+                                      height: 8,
+                                      decoration: BoxDecoration(
+                                        color: currentIndex == index
+                                            ? MyColor.dark
+                                            : MyColor.OnbColors,
+                                        borderRadius:
                                             BorderRadius.circular(10.0),
-                                          ),
-                                        ),
-                                      ]);
+                                      ),
+                                    ),
+                                  ]);
                                 },
                               ),
                             ),
                             InkWell(
-                              onTap: ()  {
-
+                              onTap: () {
                                 if (index == screens.length - 1) {
-                                   _storeOnboardInfo();
+                                  _storeOnboardInfo();
                                   Navigator.pushReplacement(
                                       _,
                                       MaterialPageRoute(
-                                          builder: (context) => const SignScreen()));
+                                          builder: (context) =>
+                                              const SignScreen()));
                                 }
 
                                 _pageController.nextPage(
@@ -213,9 +202,7 @@ class _OnBoardState extends State<OnBoard> {
                                         "Next",
                                         style: TextStyle(
                                             fontSize: 16.0,
-                                            color:
-                                            Colors.white
-                                        ),
+                                            color: Colors.white),
                                       ),
                                       SizedBox(
                                         width: 15.0,

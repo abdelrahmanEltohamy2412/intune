@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
@@ -39,7 +38,7 @@ class Message extends StatelessWidget {
           if (!message.isSender) ...[
             const CircleAvatar(
               radius: 12,
-              backgroundImage: AssetImage("assets/images/user_2.png"),
+              backgroundImage: AssetImage("lib/assets/images/man.png"),
             ),
             const SizedBox(width: kDefaultPadding / 2),
           ],
