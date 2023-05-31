@@ -49,10 +49,10 @@ class _ChatInputFieldState extends State<ChatInputField> {
                 ),
                 child: Row(
                   children: [
-                    SizedBox(width: kDefaultPadding / 4),
+                    const SizedBox(width: kDefaultPadding / 4),
                     Expanded(
                       child: TextField(
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           hintText: "Type message",
                           border: InputBorder.none,
                         ),
@@ -71,7 +71,7 @@ class _ChatInputFieldState extends State<ChatInputField> {
                       ),
                     ),
                     IconButton(
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.send,
                           color: MyColor.pink,
                         ),

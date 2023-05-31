@@ -2,16 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:intune/const/colors/colors.dart';
 
 class TextFormFieldScreen extends StatelessWidget {
-  TextFormFieldScreen({
-    Key? key,
-    required this.type,
-    required this.hint,
-  }) : super(key: key);
+  TextFormFieldScreen
+      ({Key? key, required this.type, required this.hint, this.validator,  this.controller,}) : super(key: key);
   final TextInputType type;
   final String hint;
+  final String? validator;
+   final TextEditingController? controller;
+
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
+      controller: controller,
+      validator: (v) {
+        if (v!.isEmpty) {
+          return ('email is required');
+        }
+        return null;
+      },
       keyboardType: type,
       style: const TextStyle(color: MyColor.green),
       cursorColor: MyColor.green,

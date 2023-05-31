@@ -19,16 +19,16 @@ class MessagesScreen extends StatelessWidget {
     return AppBar(
       backgroundColor: MyColor.lightGreen,
       automaticallyImplyLeading: false,
-      title: Row(
+      title: const Row(
         children: [
-          const BackButton(),
-          const CircleAvatar(
+          BackButton(),
+          CircleAvatar(
             backgroundImage: AssetImage("lib/assets/images/man.png"),
           ),
-          const SizedBox(width: kDefaultPadding * 0.75),
+          SizedBox(width: kDefaultPadding * 0.75),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
+            children: [
               Center(
                 child: Text(
                   "Dr.Ahmed Ali",

@@ -135,7 +135,7 @@ class SignScreen extends StatelessWidget {
                         child: FillButtonScreen(
                           text: 'Sign In',
                           onpressed: () {
-                            navigateTo(context, BottomBarScreen());
+                            navigateTo(context, const BottomBarScreen());
                           },
                         ),
                       ),

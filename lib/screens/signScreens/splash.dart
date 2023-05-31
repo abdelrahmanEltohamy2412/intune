@@ -2,7 +2,13 @@ import 'dart:async';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/material.dart';
+import 'package:intune/const/Navigetor/Navigetor.dart';
 import 'package:intune/screens/onboarding/onboardingScreen.dart';
+import 'package:intune/screens/signScreens/signScreen.dart';
+
+import '../../network/data_resourses/local/cachehelper.dart';
+import '../BottomNavigationBar/Home.dart';
+import '../HomeScreen/homescreen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -17,14 +23,16 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   void initState() {
+
     Future.delayed(Duration(seconds: splashtime), () async {
-      Navigator.pushReplacement(context, MaterialPageRoute(
-          //pushReplacement = replacing the route so that
-          //splash screen won't show on back button press
-          //navigation to onBoarding page.
-          builder: (context) {
-        return const OnBoard();
-      }));
+     // String? token = CacheHelper.getKey(key: 'token');
+    //  if(token!=null){
+        navigateTo(context, SignScreen());
+     // }
+      //else{
+      //  navigateTo(context, SignScreen());
+     // }
+
     });
 
     super.initState();
