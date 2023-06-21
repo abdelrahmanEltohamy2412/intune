@@ -30,39 +30,39 @@ class _SignScreenState extends State<SignScreen> {
   TextEditingController Email =TextEditingController();
   TextEditingController Password =TextEditingController();
 
-  // Future<void> login () async {
-  //   final data = {
-  //
-  //     "email" : Email.text,
-  //     "password" : Password.text,
-  //
-  //
-  //
-  //
-  //   };
-  //   LoginModel ? user;
-  //   DataLog ? userdata;
-  //
-  //   try{ Response response = await DioHelper.postData(url: signIn,body: data );
-  //   if(response.statusCode==200){
-  //     user = LoginModel.fromJson(response.data);
-  //      CacheHelper.saveData(key: "token", value: "${userdata!.accessToken}" );
-  //     navigateAndFinished(context, BottomBarScreen());
-  //   }
-  //   else{
-  //     print('Register Error = ${response.data}');
-  //     print('Register Error = ${response.statusMessage}');
-  //
-  //
-  //   }
-  //
-  //   }
-  //   catch(e){
-  //     print('ERRRRORRRRRRRR100000${e.toString()}');
-  //   }
-  //
-  //
-  // }
+  Future<void> login () async {
+    final data = {
+
+      "email" : Email.text,
+      "password" : Password.text,
+
+
+
+
+    };
+    LoginModel ? user;
+    DataLog ? userdata;
+
+    try{ Response response = await DioHelper.postData(url: signIn,body: data );
+    if(response.statusCode==200){
+      user = LoginModel.fromJson(response.data);
+       CacheHelper.saveData(key: "token", value: "${userdata!.accessToken}" );
+      navigateAndFinished(context, BottomBarScreen());
+    }
+    else{
+      print('Register Error = ${response.data}');
+      print('Register Error = ${response.statusMessage}');
+
+
+    }
+
+    }
+    catch(e){
+      print('ERRRRORRRRRRRR100000${e.toString()}');
+    }
+
+
+  }
 
     @override
   Widget build(BuildContext context) {
@@ -203,7 +203,8 @@ class _SignScreenState extends State<SignScreen> {
                             text: 'Sign In',
                             onpressed:
                                 () {if(fromkey.currentState!.validate()){
-                               navigateTo(context, BottomBarScreen());
+
+                               login();
                             }},
                           ),
                         ),
