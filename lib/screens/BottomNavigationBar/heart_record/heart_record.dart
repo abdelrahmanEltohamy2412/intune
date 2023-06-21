@@ -93,11 +93,11 @@ class HeartRecord extends StatelessWidget {
               decoration: BoxDecoration(
                   color: MyColor.green,
                   borderRadius: BorderRadius.circular(22)),
-              child: Padding(
-                padding: const EdgeInsets.all(20),
+              child: const Padding(
+                padding: EdgeInsets.all(20),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
+                  children: [
                     Text(
                       "Diagnose 1",
                       style: TextStyle(color: MyColor.dark, fontSize: 15),

@@ -6,19 +6,14 @@ class TextFormFieldScreen extends StatelessWidget {
       ({Key? key, required this.type, required this.hint, this.validator,  this.controller,}) : super(key: key);
   final TextInputType type;
   final String hint;
-  final String? validator;
+  final dynamic validator;
    final TextEditingController? controller;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       controller: controller,
-      validator: (v) {
-        if (v!.isEmpty) {
-          return ('email is required');
-        }
-        return null;
-      },
+       validator: validator,
       keyboardType: type,
       style: const TextStyle(color: MyColor.green),
       cursorColor: MyColor.green,

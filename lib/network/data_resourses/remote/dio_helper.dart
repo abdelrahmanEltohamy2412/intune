@@ -7,7 +7,7 @@ class DioHelper {
 
   static init() {
     _dio = Dio(BaseOptions(
-      baseUrl: 'https://201a-156-203-135-247.ngrok-free.app/api',
+      baseUrl: 'https://6be0-156-203-185-220.ngrok-free.app/api',
       receiveDataWhenStatusError: true,
       connectTimeout: const Duration(seconds: 3600),
       receiveTimeout: const Duration(seconds: 3600),

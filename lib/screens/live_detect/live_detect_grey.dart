@@ -103,9 +103,9 @@ class _LiveDetectGreyScreenState extends State<LiveDetectGreyScreen> {
                       const SizedBox(
                         height: 20,
                       ),
-                      Row(
+                      const Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: const [
+                        children: [
                           RateContainerScreen(
                             text: "25 mm/s",
                           ),
@@ -119,9 +119,14 @@ class _LiveDetectGreyScreenState extends State<LiveDetectGreyScreen> {
                       ),
                       const SizedBox(
                         height: 20,
+
                       ),
-                      SvgPicture.asset("lib/assets/images/Mask Group 84.svg"),
                       SizedBox(
+                        height: 20,
+                      ),
+                      SvgPicture.asset('lib/assets/images/Mask Group 84.svg'),
+
+                      const SizedBox(
                         height: 40,
                       ),
                       Row(
@@ -144,7 +149,7 @@ class _LiveDetectGreyScreenState extends State<LiveDetectGreyScreen> {
                                           await audioPlayer.pause();
                                         } else {
                                           audioUrl = UrlSource(
-                                              'https://serv100.albumaty.com/dl/mem/mnw3at/albums/aghany-ramdan/Mohamed_Abdelmetlb_-_Ramdan_Gana.mp3');
+                                              'https://www.soundjay.com/human/heartbeat-01a.mp3');
                                           audioPlayer.play(audioUrl);
                                         }
                                       },
@@ -200,3 +205,6 @@ class _LiveDetectGreyScreenState extends State<LiveDetectGreyScreen> {
     );
   }
 }
+
+
+

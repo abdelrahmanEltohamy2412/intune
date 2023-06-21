@@ -1,8 +1,10 @@
 
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intune/network/data_resourses/remote/dio_helper.dart';
 import 'package:intune/screens/signScreens/splash.dart';
+
 
 import 'network/data_resourses/local/cachehelper.dart';
 
@@ -14,6 +16,7 @@ void main() async {
 
   await DioHelper.init();
   await CacheHelper.init();
+
 
 
   runApp(MyApp());

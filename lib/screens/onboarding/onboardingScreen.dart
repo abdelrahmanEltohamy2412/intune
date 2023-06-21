@@ -115,7 +115,7 @@ class _OnBoardState extends State<OnBoard> {
                   height: 44,
                 ),
                 Container(
-                  height: 323,
+                  height: 333,
                   width: double.infinity,
                   decoration: const BoxDecoration(
                       color: Colors.white,

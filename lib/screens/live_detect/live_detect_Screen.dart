@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intune/const/colors/colors.dart';
+import 'package:intune/screens/BottomNavigationBar/heart_record/heart_record_report.dart';
 import 'package:intune/screens/QuizScreens/select_heart/heart_position_Screen.dart';
 import 'package:audioplayers/audioplayers.dart';
 import '../../const/Navigetor/Navigetor.dart';
@@ -143,7 +144,7 @@ class _LiveDetectScreenState extends State<LiveDetectScreen> {
                                           await audioPlayer.pause();
                                         } else {
                                           audioUrl = UrlSource(
-                                              'https://serv100.albumaty.com/dl/mem/mnw3at/albums/aghany-ramdan/Mohamed_Abdelmetlb_-_Ramdan_Gana.mp3');
+                                              'https://www.soundjay.com/human/heartbeat-01a.mp3');
                                           audioPlayer.play(audioUrl);
                                         }
                                       },
@@ -167,7 +168,7 @@ class _LiveDetectScreenState extends State<LiveDetectScreen> {
                                 color: MyColor.green,
                               ),
                               child: MaterialButton(
-                                onPressed: () {},
+                                onPressed: () {navigateTo(context, HeartReport());},
                                 child: const Text(
                                   "Save",
                                   style: TextStyle(

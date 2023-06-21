@@ -1,4 +1,4 @@
-import 'dart:math';
+
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +12,7 @@ import 'package:intune/network/data_resourses/remote/dio_helper.dart';
 import 'package:intune/screens/signScreens/forgetpasswordScreen.dart';
 import 'package:intune/screens/signScreens/signScreen.dart';
 
-import '../../models/user_model.dart';
+import '../../models/user_modelReg.dart';
 import '../../network/data_resourses/local/cachehelper.dart';
 import '../../network/data_resourses/remote/endPoints.dart';
 import '../HomeScreen/homescreen.dart';
@@ -136,28 +136,28 @@ Future<void> regsiter () async {
                                 height: 70,
                                 child:
                                 TextFormFieldScreen(
-                                 validator: "${(v){
-                                    if(v!.isEmpty){
-                                      return
-                                        (' name is required');
-                                    }
-                                    return null ;
-                                  }}",
+                                 validator: (v){
+                                   if(v!.isEmpty){
+                                     return
+                                       (' name  is required');
+                                   }
+                                   return null ;
+                                 },
                                   controller: name,
-                                  hint: "Enter your name",
+                                  hint  : "Enter your name",
                                   type: TextInputType.name,
                                 )),
                             const SizedBox(
                               height: 15,
                             ),
                             TextFormFieldScreen(
-                                validator: "${(v){
+                                validator: (v){
                                   if(v!.isEmpty){
                                     return
-                                      (' email is required');
+                                      (' email  is required');
                                   }
                                   return null ;
-                                }}",
+                                },
                                  controller: Email,
                                 type: TextInputType.emailAddress,
                                 hint: "Enter your E-mail"),
@@ -215,7 +215,7 @@ Future<void> regsiter () async {
                                 validator: (v){
                                   if(v!.isEmpty){
                                     return
-                                      ('conpassword is required');
+                                      ('confirmPassword is required');
                                   }
                                   return null ;
                                 },
@@ -241,7 +241,7 @@ Future<void> regsiter () async {
                                         fontFamily: "TiltNeon",
                                         letterSpacing: 0.5,
                                         fontSize: 15),
-                                    hintText: "Enter your password",
+                                    hintText: "Enter your confirmPassword",
                                     focusColor: MyColor.green,
                                     fillColor: Colors.white),
                               ),
@@ -259,85 +259,85 @@ Future<void> regsiter () async {
                             const SizedBox(
                               height: 20,
                             ),
-                            const Center(
-                              child: Text(
-                                "Also can sign in with ",
-                                style: TextStyle(
-                                    color: MyColor.pink,
-                                    fontSize: 14,
-                                    fontFamily: "TiltNeon"),
-                              ),
-                            ),
-                            const SizedBox(
-                              height: 30,
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                Container(
-                                  width: 50,
-                                  height: 50,
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(15),
-                                      color: MyColor.lightPink),
-                                  child: IconButton(
-                                      // Use the FaIcon Widget + FontAwesomeIcons class for the IconData
-                                      icon: const FaIcon(
-                                        FontAwesomeIcons.facebookF,
-                                        color: Colors.white,
-                                      ),
-                                      onPressed: () {
-                                        print("Pressed");
-                                      }),
-                                ),
-                                Container(
-                                  width: 50,
-                                  height: 50,
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(15),
-                                      color: MyColor.lightPink),
-                                  child: IconButton(
-                                      // Use the FaIcon Widget + FontAwesomeIcons class for the IconData
-                                      icon: const FaIcon(
-                                        FontAwesomeIcons.google,
-                                        color: Colors.white,
-                                      ),
-                                      onPressed: () {
-                                        print("Pressed");
-                                      }),
-                                ),
-                                Container(
-                                  width: 50,
-                                  height: 50,
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(15),
-                                      color: MyColor.lightPink),
-                                  child: IconButton(
-                                      // Use the FaIcon Widget + FontAwesomeIcons class for the IconData
-                                      icon: const FaIcon(
-                                        FontAwesomeIcons.apple,
-                                        color: Colors.white,
-                                      ),
-                                      onPressed: () {
-                                        print("Pressed");
-                                      }),
-                                ),
-                                Material(
-                                  color: MyColor.lightPink,
-                                  borderRadius: BorderRadius.circular(15),
-                                  child: InkWell(
-                                    onTap: () {},
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(50),
-                                      child: Image.asset(
-                                          'lib/assets/images/Icon simple-huawei.png',
-                                          width: 50,
-                                          height: 50),
-                                    ),
-                                  ),
-                                )
-                              ],
-                            )
+                            // const Center(
+                            //   child: Text(
+                            //     "Also can sign in with ",
+                            //     style: TextStyle(
+                            //         color: MyColor.pink,
+                            //         fontSize: 14,
+                            //         fontFamily: "TiltNeon"),
+                            //   ),
+                            // ),
+                            // const SizedBox(
+                            //   height: 30,
+                            // ),
+                            // Row(
+                            //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            //   children: [
+                            //     Container(
+                            //       width: 50,
+                            //       height: 50,
+                            //       decoration: BoxDecoration(
+                            //           borderRadius: BorderRadius.circular(15),
+                            //           color: MyColor.lightPink),
+                            //       child: IconButton(
+                            //           // Use the FaIcon Widget + FontAwesomeIcons class for the IconData
+                            //           icon: const FaIcon(
+                            //             FontAwesomeIcons.facebookF,
+                            //             color: Colors.white,
+                            //           ),
+                            //           onPressed: () {
+                            //             print("Pressed");
+                            //           }),
+                            //     ),
+                            //     Container(
+                            //       width: 50,
+                            //       height: 50,
+                            //       decoration: BoxDecoration(
+                            //           borderRadius: BorderRadius.circular(15),
+                            //           color: MyColor.lightPink),
+                            //       child: IconButton(
+                            //           // Use the FaIcon Widget + FontAwesomeIcons class for the IconData
+                            //           icon: const FaIcon(
+                            //             FontAwesomeIcons.google,
+                            //             color: Colors.white,
+                            //           ),
+                            //           onPressed: () {
+                            //             print("Pressed");
+                            //           }),
+                            //     ),
+                            //     Container(
+                            //       width: 50,
+                            //       height: 50,
+                            //       decoration: BoxDecoration(
+                            //           borderRadius: BorderRadius.circular(15),
+                            //           color: MyColor.lightPink),
+                            //       child: IconButton(
+                            //           // Use the FaIcon Widget + FontAwesomeIcons class for the IconData
+                            //           icon: const FaIcon(
+                            //             FontAwesomeIcons.apple,
+                            //             color: Colors.white,
+                            //           ),
+                            //           onPressed: () {
+                            //             print("Pressed");
+                            //           }),
+                            //     ),
+                            //     Material(
+                            //       color: MyColor.lightPink,
+                            //       borderRadius: BorderRadius.circular(15),
+                            //       child: InkWell(
+                            //         onTap: () {},
+                            //         child: ClipRRect(
+                            //           borderRadius: BorderRadius.circular(50),
+                            //           child: Image.asset(
+                            //               'lib/assets/images/Icon simple-huawei.png',
+                            //               width: 50,
+                            //               height: 50),
+                            //         ),
+                            //       ),
+                            //     )
+                            //   ],
+                            // )
                           ]),
                     ),
                   ),

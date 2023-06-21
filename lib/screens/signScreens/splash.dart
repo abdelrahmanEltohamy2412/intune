@@ -6,9 +6,6 @@ import 'package:intune/const/Navigetor/Navigetor.dart';
 import 'package:intune/screens/onboarding/onboardingScreen.dart';
 import 'package:intune/screens/signScreens/signScreen.dart';
 
-import '../../network/data_resourses/local/cachehelper.dart';
-import '../BottomNavigationBar/Home.dart';
-import '../HomeScreen/homescreen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -27,7 +24,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Future.delayed(Duration(seconds: splashtime), () async {
      // String? token = CacheHelper.getKey(key: 'token');
     //  if(token!=null){
-        navigateTo(context, SignScreen());
+        navigateTo(context, const OnBoard());
      // }
       //else{
       //  navigateTo(context, SignScreen());

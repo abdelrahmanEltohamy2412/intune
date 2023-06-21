@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 import 'package:intune/const/Navigetor/Navigetor.dart';
 import 'package:intune/const/colors/colors.dart';
-import 'package:intune/screens/BottomNavigationBar/chat/screens/chats/chats_screen.dart';
+
 
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+
 import '../BottomNavigationBar/Home.dart';
 
+import '../BottomNavigationBar/chat/screens/chats/chats_screen.dart';
 import '../BottomNavigationBar/personal_info.dart';
 import '../QuizScreens/patient_Photo_Screen.dart';
 
@@ -75,10 +78,10 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
                 unselectedItemColor: MyColor.lightGrey,
                 selectedItemColor: MyColor.lightPink,
                 currentIndex: _selectedPageIndex,
-                items: const [
+                items:  [
                   BottomNavigationBarItem(
                       icon: FaIcon(FontAwesomeIcons.house), label: ''),
-                  BottomNavigationBarItem(icon: Icon(MdiIcons.chat), label: ''),
+                  BottomNavigationBarItem(icon: Icon(Icons.chat_bubble_outline_outlined), label: ''),
                   BottomNavigationBarItem(
                       activeIcon: null, icon: Icon(null), label: ''),
                   BottomNavigationBarItem(

@@ -163,52 +163,9 @@ class _HeartReportState extends State<HeartReport> {
                         color: Color(0xff858891),
                       ),
                     ),
-                    Image.asset("lib/assets/images/heart.png"),
-                    const Text(
-                      "     murmur detected ",
-                      style: TextStyle(
-                        fontSize: 15,
-                        color: Color(0xff858891),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Divider(
-                color: const Color(0xff858891).withOpacity(0.25),
-                thickness: 1,
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Padding(
-                      padding: EdgeInsets.only(left: 30),
-                      child: Align(
-                        alignment: Alignment.topLeft,
-                        child: Text(
-                          "LUSB",
-                          style: TextStyle(
-                            fontSize: 15,
-                            color: Color(0xff858891),
-                          ),
-                        ),
-                      ),
-                    ),
-                    const Text(
-                      "98 BPM ",
-                      style: TextStyle(
-                        fontSize: 15,
-                        color: Color(0xff858891),
-                      ),
-                    ),
                     Image.asset("lib/assets/images/Combined Shape.png"),
                     const Text(
-                      " no murmur detected ",
+                      "     normal  ",
                       style: TextStyle(
                         fontSize: 15,
                         color: Color(0xff858891),
@@ -217,281 +174,324 @@ class _HeartReportState extends State<HeartReport> {
                   ],
                 ),
               ),
-              Divider(
-                color: const Color(0xff858891).withOpacity(0.25),
-                thickness: 1,
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Padding(
-                      padding: EdgeInsets.only(left: 30),
-                      child: Align(
-                        alignment: Alignment.topLeft,
-                        child: Text(
-                          "LLSB",
-                          style: TextStyle(
-                            fontSize: 15,
-                            color: Color(0xff858891),
-                          ),
-                        ),
-                      ),
-                    ),
-                    const Text(
-                      "98 BPM ",
-                      style: TextStyle(
-                        fontSize: 15,
-                        color: Color(0xff858891),
-                      ),
-                    ),
-                    Image.asset("lib/assets/images/Combined Shape.png"),
-                    const Text(
-                      " no murmur detected ",
-                      style: TextStyle(
-                        fontSize: 15,
-                        color: Color(0xff858891),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Divider(
-                color: const Color(0xff858891).withOpacity(0.25),
-                thickness: 1,
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Padding(
-                      padding: EdgeInsets.only(left: 30),
-                      child: Align(
-                        alignment: Alignment.topLeft,
-                        child: Text(
-                          "APEX",
-                          style: TextStyle(
-                            fontSize: 15,
-                            color: Color(0xff858891),
-                          ),
-                        ),
-                      ),
-                    ),
-                    const Text(
-                      "98 BPM ",
-                      style: TextStyle(
-                        fontSize: 15,
-                        color: Color(0xff858891),
-                      ),
-                    ),
-                    Image.asset("lib/assets/images/Combined Shape.png"),
-                    const Text(
-                      " no murmur detected ",
-                      style: TextStyle(
-                        fontSize: 15,
-                        color: Color(0xff858891),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Container(
-                width: 360,
-                height: 75,
-                decoration: BoxDecoration(
-                    color: MyColor.lightGreen,
-                    borderRadius: BorderRadius.circular(22)),
-                child: Padding(
-                  padding: const EdgeInsets.all(19),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Image.asset(
-                          "lib/assets/images/Icon metro-files-empty.png"),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
-                          Text(
-                            "RUBS",
-                            style: TextStyle(
-                              fontSize: 15,
-                              color: MyColor.dark,
-                            ),
-                          ),
-                          Text(
-                            "17 May 12:50 AM",
-                            style: TextStyle(
-                              fontSize: 15,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ],
-                      ),
-                      IconButton(
-                        onPressed: () async {
-                          if (isPlaying) {
-                            await audioPlayer.pause();
-                          } else {
-                            audioUrl = UrlSource(
-                                'https://serv100.albumaty.com/dl/mem/mnw3at/albums/aghany-ramdan/Mohamed_Abdelmetlb_-_Ramdan_Gana.mp3');
-                            audioPlayer.play(audioUrl);
-                          }
-                        },
-                        icon: Container(
-                          height: 25,
-                          width: 25,
-                          decoration: BoxDecoration(
-                              color: MyColor.green,
-                              borderRadius: BorderRadius.circular(50)),
-                          child: Icon(
-                            isPlaying ? Icons.pause : Icons.play_arrow,
-                            color: Colors.white,
-                            size: 20,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              Container(
-                width: 360,
-                height: 75,
-                decoration: BoxDecoration(
-                    color: MyColor.lightGreen,
-                    borderRadius: BorderRadius.circular(22)),
-                child: Padding(
-                  padding: const EdgeInsets.all(19),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Image.asset(
-                          "lib/assets/images/Icon metro-files-empty.png"),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
-                          Text(
-                            "LUSB",
-                            style: TextStyle(
-                              fontSize: 15,
-                              color: MyColor.dark,
-                            ),
-                          ),
-                          Text(
-                            "17 May 12:50 AM",
-                            style: TextStyle(
-                              fontSize: 15,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ],
-                      ),
-                      IconButton(
-                        onPressed: () async {
-                          if (isPlaying1) {
-                            await audioPlayer1.pause();
-                          } else {
-                            audioUrl = UrlSource(
-                                'https://serv100.albumaty.com/dl/mem/mnw3at/albums/aghany-ramdan/Mohamed_Abdelmetlb_-_Ramdan_Gana.mp3');
-                            audioPlayer.play(audioUrl);
-                          }
-                        },
-                        icon: Container(
-                          height: 25,
-                          width: 25,
-                          decoration: BoxDecoration(
-                              color: MyColor.green,
-                              borderRadius: BorderRadius.circular(50)),
-                          child: Icon(
-                            isPlaying ? Icons.pause : Icons.play_arrow,
-                            color: Colors.white,
-                            size: 20,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              Container(
-                width: 360,
-                height: 75,
-                decoration: BoxDecoration(
-                    color: MyColor.lightGreen,
-                    borderRadius: BorderRadius.circular(22)),
-                child: Padding(
-                  padding: const EdgeInsets.all(19),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Image.asset(
-                          "lib/assets/images/Icon metro-files-empty.png"),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
-                          Text(
-                            "LLSB",
-                            style: TextStyle(
-                              fontSize: 15,
-                              color: MyColor.dark,
-                            ),
-                          ),
-                          Text(
-                            "17 May 12:50 AM",
-                            style: TextStyle(
-                              fontSize: 15,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ],
-                      ),
-                      IconButton(
-                        onPressed: () async {
-                          if (isPlaying2) {
-                            await audioPlayer2.pause();
-                          } else {
-                            audioUrl = UrlSource(
-                                'https://serv100.albumaty.com/dl/mem/mnw3at/albums/aghany-ramdan/Mohamed_Abdelmetlb_-_Ramdan_Gana.mp3');
-                            audioPlayer.play(audioUrl);
-                          }
-                        },
-                        icon: Container(
-                          height: 25,
-                          width: 25,
-                          decoration: BoxDecoration(
-                              color: MyColor.green,
-                              borderRadius: BorderRadius.circular(50)),
-                          child: Icon(
-                            isPlaying ? Icons.pause : Icons.play_arrow,
-                            color: Colors.white,
-                            size: 20,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
+              // Divider(
+              //   color: const Color(0xff858891).withOpacity(0.25),
+              //   thickness: 1,
+              // ),
+              // const SizedBox(
+              //   height: 20,
+              // ),
+              // Padding(
+              //   padding: const EdgeInsets.all(8.0),
+              //   child: Row(
+              //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //     children: [
+              //       const Padding(
+              //         padding: EdgeInsets.only(left: 30),
+              //         child: Align(
+              //           alignment: Alignment.topLeft,
+              //           child: Text(
+              //             "LUSB",
+              //             style: TextStyle(
+              //               fontSize: 15,
+              //               color: Color(0xff858891),
+              //             ),
+              //           ),
+              //         ),
+              //       ),
+              //       const Text(
+              //         "98 BPM ",
+              //         style: TextStyle(
+              //           fontSize: 15,
+              //           color: Color(0xff858891),
+              //         ),
+              //       ),
+              //       Image.asset("lib/assets/images/Combined Shape.png"),
+              //       const Text(
+              //         " no murmur detected ",
+              //         style: TextStyle(
+              //           fontSize: 15,
+              //           color: Color(0xff858891),
+              //         ),
+              //       ),
+              //     ],
+              //   ),
+              // ),
+              // Divider(
+              //   color: const Color(0xff858891).withOpacity(0.25),
+              //   thickness: 1,
+              // ),
+              // const SizedBox(
+              //   height: 20,
+              // ),
+              // Padding(
+              //   padding: const EdgeInsets.all(8.0),
+              //   child: Row(
+              //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //     children: [
+              //       const Padding(
+              //         padding: EdgeInsets.only(left: 30),
+              //         child: Align(
+              //           alignment: Alignment.topLeft,
+              //           child: Text(
+              //             "LLSB",
+              //             style: TextStyle(
+              //               fontSize: 15,
+              //               color: Color(0xff858891),
+              //             ),
+              //           ),
+              //         ),
+              //       ),
+              //       const Text(
+              //         "98 BPM ",
+              //         style: TextStyle(
+              //           fontSize: 15,
+              //           color: Color(0xff858891),
+              //         ),
+              //       ),
+              //       Image.asset("lib/assets/images/Combined Shape.png"),
+              //       const Text(
+              //         " no murmur detected ",
+              //         style: TextStyle(
+              //           fontSize: 15,
+              //           color: Color(0xff858891),
+              //         ),
+              //       ),
+              //     ],
+              //   ),
+              // ),
+              // Divider(
+              //   color: const Color(0xff858891).withOpacity(0.25),
+              //   thickness: 1,
+              // ),
+              // const SizedBox(
+              //   height: 20,
+              // ),
+              // Padding(
+              //   padding: const EdgeInsets.all(8.0),
+              //   child: Row(
+              //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //     children: [
+              //       const Padding(
+              //         padding: EdgeInsets.only(left: 30),
+              //         child: Align(
+              //           alignment: Alignment.topLeft,
+              //           child: Text(
+              //             "APEX",
+              //             style: TextStyle(
+              //               fontSize: 15,
+              //               color: Color(0xff858891),
+              //             ),
+              //           ),
+              //         ),
+              //       ),
+              //       const Text(
+              //         "98 BPM ",
+              //         style: TextStyle(
+              //           fontSize: 15,
+              //           color: Color(0xff858891),
+              //         ),
+              //       ),
+              //       Image.asset("lib/assets/images/Combined Shape.png"),
+              //       const Text(
+              //         " no murmur detected ",
+              //         style: TextStyle(
+              //           fontSize: 15,
+              //           color: Color(0xff858891),
+              //         ),
+              //       ),
+              //     ],
+              //   ),
+              // ),
+              // const SizedBox(
+              //   height: 20,
+              // ),
+              // Container(
+              //   width: 360,
+              //   height: 75,
+              //   decoration: BoxDecoration(
+              //       color: MyColor.lightGreen,
+              //       borderRadius: BorderRadius.circular(22)),
+              //   child: Padding(
+              //     padding: const EdgeInsets.all(19),
+              //     child: Row(
+              //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //       children: [
+              //         Image.asset(
+              //             "lib/assets/images/Icon metro-files-empty.png"),
+              //         Column(
+              //           crossAxisAlignment: CrossAxisAlignment.start,
+              //           children: const [
+              //             Text(
+              //               "RUBS",
+              //               style: TextStyle(
+              //                 fontSize: 15,
+              //                 color: MyColor.dark,
+              //               ),
+              //             ),
+              //             Text(
+              //               "17 May 12:50 AM",
+              //               style: TextStyle(
+              //                 fontSize: 15,
+              //                 color: Colors.white,
+              //               ),
+              //             ),
+              //           ],
+              //         ),
+              //         IconButton(
+              //           onPressed: () async {
+              //             if (isPlaying) {
+              //               await audioPlayer.pause();
+              //             } else {
+              //               audioUrl = UrlSource(
+              //                   'https://serv100.albumaty.com/dl/mem/mnw3at/albums/aghany-ramdan/Mohamed_Abdelmetlb_-_Ramdan_Gana.mp3');
+              //               audioPlayer.play(audioUrl);
+              //             }
+              //           },
+              //           icon: Container(
+              //             height: 25,
+              //             width: 25,
+              //             decoration: BoxDecoration(
+              //                 color: MyColor.green,
+              //                 borderRadius: BorderRadius.circular(50)),
+              //             child: Icon(
+              //               isPlaying ? Icons.pause : Icons.play_arrow,
+              //               color: Colors.white,
+              //               size: 20,
+              //             ),
+              //           ),
+              //         ),
+              //       ],
+              //     ),
+              //   ),
+              // ),
+              // const SizedBox(
+              //   height: 10,
+              // ),
+              // Container(
+              //   width: 360,
+              //   height: 75,
+              //   decoration: BoxDecoration(
+              //       color: MyColor.lightGreen,
+              //       borderRadius: BorderRadius.circular(22)),
+              //   child: Padding(
+              //     padding: const EdgeInsets.all(19),
+              //     child: Row(
+              //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //       children: [
+              //         Image.asset(
+              //             "lib/assets/images/Icon metro-files-empty.png"),
+              //         Column(
+              //           crossAxisAlignment: CrossAxisAlignment.start,
+              //           children: const [
+              //             Text(
+              //               "LUSB",
+              //               style: TextStyle(
+              //                 fontSize: 15,
+              //                 color: MyColor.dark,
+              //               ),
+              //             ),
+              //             Text(
+              //               "17 May 12:50 AM",
+              //               style: TextStyle(
+              //                 fontSize: 15,
+              //                 color: Colors.white,
+              //               ),
+              //             ),
+              //           ],
+              //         ),
+              //         IconButton(
+              //           onPressed: () async {
+              //             if (isPlaying1) {
+              //               await audioPlayer1.pause();
+              //             } else {
+              //               audioUrl = UrlSource(
+              //                   'https://serv100.albumaty.com/dl/mem/mnw3at/albums/aghany-ramdan/Mohamed_Abdelmetlb_-_Ramdan_Gana.mp3');
+              //               audioPlayer.play(audioUrl);
+              //             }
+              //           },
+              //           icon: Container(
+              //             height: 25,
+              //             width: 25,
+              //             decoration: BoxDecoration(
+              //                 color: MyColor.green,
+              //                 borderRadius: BorderRadius.circular(50)),
+              //             child: Icon(
+              //               isPlaying ? Icons.pause : Icons.play_arrow,
+              //               color: Colors.white,
+              //               size: 20,
+              //             ),
+              //           ),
+              //         ),
+              //       ],
+              //     ),
+              //   ),
+              // ),
+              // const SizedBox(
+              //   height: 10,
+              // ),
+              // Container(
+              //   width: 360,
+              //   height: 75,
+              //   decoration: BoxDecoration(
+              //       color: MyColor.lightGreen,
+              //       borderRadius: BorderRadius.circular(22)),
+              //   child: Padding(
+              //     padding: const EdgeInsets.all(19),
+              //     child: Row(
+              //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //       children: [
+              //         Image.asset(
+              //             "lib/assets/images/Icon metro-files-empty.png"),
+              //         Column(
+              //           crossAxisAlignment: CrossAxisAlignment.start,
+              //           children: const [
+              //             Text(
+              //               "LLSB",
+              //               style: TextStyle(
+              //                 fontSize: 15,
+              //                 color: MyColor.dark,
+              //               ),
+              //             ),
+              //             Text(
+              //               "17 May 12:50 AM",
+              //               style: TextStyle(
+              //                 fontSize: 15,
+              //                 color: Colors.white,
+              //               ),
+              //             ),
+              //           ],
+              //         ),
+              //         IconButton(
+              //           onPressed: () async {
+              //             if (isPlaying2) {
+              //               await audioPlayer2.pause();
+              //             } else {
+              //               audioUrl = UrlSource(
+              //                   'https://serv100.albumaty.com/dl/mem/mnw3at/albums/aghany-ramdan/Mohamed_Abdelmetlb_-_Ramdan_Gana.mp3');
+              //               audioPlayer.play(audioUrl);
+              //             }
+              //           },
+              //           icon: Container(
+              //             height: 25,
+              //             width: 25,
+              //             decoration: BoxDecoration(
+              //                 color: MyColor.green,
+              //                 borderRadius: BorderRadius.circular(50)),
+              //             child: Icon(
+              //               isPlaying ? Icons.pause : Icons.play_arrow,
+              //               color: Colors.white,
+              //               size: 20,
+              //             ),
+              //           ),
+              //         ),
+              //       ],
+              //     ),
+              //   ),
+              // ),
+              // const SizedBox(
+              //   height: 10,
+              // ),
               Container(
                 width: 360,
                 height: 75,
@@ -516,7 +516,7 @@ class _HeartReportState extends State<HeartReport> {
                             ),
                           ),
                           Text(
-                            "17 May 12:50 AM",
+                            "20 june ",
                             style: TextStyle(
                               fontSize: 15,
                               color: Colors.white,
@@ -530,7 +530,7 @@ class _HeartReportState extends State<HeartReport> {
                             await audioPlayer3.pause();
                           } else {
                             audioUrl = UrlSource(
-                                'https://serv100.albumaty.com/dl/mem/mnw3at/albums/aghany-ramdan/Mohamed_Abdelmetlb_-_Ramdan_Gana.mp3');
+                                'https://www.soundjay.com/human/heartbeat-01a.mp3');
                             audioPlayer.play(audioUrl);
                           }
                         },
@@ -551,18 +551,18 @@ class _HeartReportState extends State<HeartReport> {
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(20),
+              const Padding(
+                padding: EdgeInsets.all(20),
                 child: Row(
                   children: [
-                    const Text(
+                    Text(
                       "Heart Rate",
                       style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
                           color: Colors.black),
                     ),
-                    const SizedBox(
+                    SizedBox(
                       width: 25,
                       height: 10,
                     ),
@@ -570,30 +570,30 @@ class _HeartReportState extends State<HeartReport> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const SizedBox(
+                        SizedBox(
                           height: 30,
                         ),
-                        const Text(
+                        Text(
                           "Rest Heart Average",
                           style:
                               TextStyle(fontSize: 15, color: Color(0xff2A2AC0)),
                         ),
                         Row(
                           children: [
-                            const Text(
-                              "61 ",
+                            Text(
+                              "98 ",
                               style:
                                   TextStyle(fontSize: 20, color: Colors.black),
                             ),
-                            const Text(
+                            Text(
                               " BPM",
                               style:
                                   TextStyle(fontSize: 14, color: Colors.black),
                             ),
                           ],
                         ),
-                        const Text(
-                          "May 2019-May 2020",
+                        Text(
+                          "20 june 2023",
                           style: TextStyle(fontSize: 15, color: Colors.black),
                         ),
                       ],
