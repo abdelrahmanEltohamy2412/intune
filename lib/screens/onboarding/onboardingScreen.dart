@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intune/const/colors/colors.dart';
-import 'package:intune/screens/signScreens/signScreen.dart';
+import 'package:intune/screens/signScreens/login/signScreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class OnboardModel {

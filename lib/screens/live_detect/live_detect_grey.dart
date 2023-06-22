@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -5,17 +7,24 @@ import 'package:intune/const/colors/colors.dart';
 import 'package:intune/screens/BottomNavigationBar/Home.dart';
 import 'package:intune/screens/QuizScreens/select_heart/heart_position_Screen.dart';
 import 'package:audioplayers/audioplayers.dart';
+import 'package:intune/screens/live_detect/chart.dart';
 import '../../const/Navigetor/Navigetor.dart';
 import '../../const/rate_container/rate_container_screen.dart';
+import '../../data/heart_line_state.dart';
+import '../../models/heart_live_model.dart';
 
 class LiveDetectGreyScreen extends StatefulWidget {
-  const LiveDetectGreyScreen({Key? key}) : super(key: key);
-
+  const LiveDetectGreyScreen({Key? key, required this.heartModel}) : super(key: key);
+  final Map heartModel;
   @override
+
   State<LiveDetectGreyScreen> createState() => _LiveDetectGreyScreenState();
 }
 
 class _LiveDetectGreyScreenState extends State<LiveDetectGreyScreen> {
+
+
+
   bool isPlaying = false;
   final audioPlayer = AudioPlayer();
   Duration duration = Duration.zero;
@@ -33,6 +42,7 @@ class _LiveDetectGreyScreenState extends State<LiveDetectGreyScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
+
     audioPlayer.onPlayerStateChanged.listen((state) {
       setState(() {
         isPlaying = state == PlayerState.playing;
@@ -51,6 +61,8 @@ class _LiveDetectGreyScreenState extends State<LiveDetectGreyScreen> {
   }
 
   Widget build(BuildContext context) {
+
+
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -124,7 +136,10 @@ class _LiveDetectGreyScreenState extends State<LiveDetectGreyScreen> {
                       SizedBox(
                         height: 20,
                       ),
-                      SvgPicture.asset('lib/assets/images/Mask Group 84.svg'),
+                      SizedBox(height: 250,
+                      width: double.infinity,
+                      child: ChartPage(title: 'Ecg')
+                        ,),
 
                       const SizedBox(
                         height: 40,

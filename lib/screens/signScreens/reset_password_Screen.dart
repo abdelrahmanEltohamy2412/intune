@@ -4,7 +4,7 @@ import 'package:intune/const/Fill_button/fill_button_screen.dart';
 import 'package:intune/const/Navigetor/Navigetor.dart';
 import 'package:intune/const/colors/colors.dart';
 import 'package:intune/screens/QuizScreens/patient_Photo_Screen.dart';
-import 'package:intune/screens/signScreens/signScreen.dart';
+import 'package:intune/screens/signScreens/login/signScreen.dart';
 
 class ResetScreen extends StatelessWidget {
   const ResetScreen({Key? key}) : super(key: key);

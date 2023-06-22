@@ -10,7 +10,7 @@ import 'package:intune/const/TextForm_screen/TextForm_Screen.dart';
 import 'package:intune/const/colors/colors.dart';
 import 'package:intune/network/data_resourses/remote/dio_helper.dart';
 import 'package:intune/screens/signScreens/forgetpasswordScreen.dart';
-import 'package:intune/screens/signScreens/signScreen.dart';
+import 'package:intune/screens/signScreens/login/signScreen.dart';
 
 import '../../models/user_modelReg.dart';
 import '../../network/data_resourses/local/cachehelper.dart';
@@ -46,6 +46,7 @@ Future<void> regsiter () async {
   try{ Response response = await DioHelper.postData(url: register, body: data);
   if(response.statusCode==200){
     user = UserModel.fromJson(response.data);
+    print(response.data);
    // CacheHelper.saveData(key: "token", value: "${userdata!.accessToken}" );
     navigateAndFinished(context, BottomBarScreen());
   }
@@ -259,85 +260,7 @@ Future<void> regsiter () async {
                             const SizedBox(
                               height: 20,
                             ),
-                            // const Center(
-                            //   child: Text(
-                            //     "Also can sign in with ",
-                            //     style: TextStyle(
-                            //         color: MyColor.pink,
-                            //         fontSize: 14,
-                            //         fontFamily: "TiltNeon"),
-                            //   ),
-                            // ),
-                            // const SizedBox(
-                            //   height: 30,
-                            // ),
-                            // Row(
-                            //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            //   children: [
-                            //     Container(
-                            //       width: 50,
-                            //       height: 50,
-                            //       decoration: BoxDecoration(
-                            //           borderRadius: BorderRadius.circular(15),
-                            //           color: MyColor.lightPink),
-                            //       child: IconButton(
-                            //           // Use the FaIcon Widget + FontAwesomeIcons class for the IconData
-                            //           icon: const FaIcon(
-                            //             FontAwesomeIcons.facebookF,
-                            //             color: Colors.white,
-                            //           ),
-                            //           onPressed: () {
-                            //             print("Pressed");
-                            //           }),
-                            //     ),
-                            //     Container(
-                            //       width: 50,
-                            //       height: 50,
-                            //       decoration: BoxDecoration(
-                            //           borderRadius: BorderRadius.circular(15),
-                            //           color: MyColor.lightPink),
-                            //       child: IconButton(
-                            //           // Use the FaIcon Widget + FontAwesomeIcons class for the IconData
-                            //           icon: const FaIcon(
-                            //             FontAwesomeIcons.google,
-                            //             color: Colors.white,
-                            //           ),
-                            //           onPressed: () {
-                            //             print("Pressed");
-                            //           }),
-                            //     ),
-                            //     Container(
-                            //       width: 50,
-                            //       height: 50,
-                            //       decoration: BoxDecoration(
-                            //           borderRadius: BorderRadius.circular(15),
-                            //           color: MyColor.lightPink),
-                            //       child: IconButton(
-                            //           // Use the FaIcon Widget + FontAwesomeIcons class for the IconData
-                            //           icon: const FaIcon(
-                            //             FontAwesomeIcons.apple,
-                            //             color: Colors.white,
-                            //           ),
-                            //           onPressed: () {
-                            //             print("Pressed");
-                            //           }),
-                            //     ),
-                            //     Material(
-                            //       color: MyColor.lightPink,
-                            //       borderRadius: BorderRadius.circular(15),
-                            //       child: InkWell(
-                            //         onTap: () {},
-                            //         child: ClipRRect(
-                            //           borderRadius: BorderRadius.circular(50),
-                            //           child: Image.asset(
-                            //               'lib/assets/images/Icon simple-huawei.png',
-                            //               width: 50,
-                            //               height: 50),
-                            //         ),
-                            //       ),
-                            //     )
-                            //   ],
-                            // )
+
                           ]),
                     ),
                   ),

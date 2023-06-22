@@ -9,7 +9,7 @@ import 'package:intune/screens/QuizScreens/patient_Form_Screen.dart';
 import 'package:intune/screens/QuizScreens/select_Organ_Screen.dart';
 import 'package:intune/screens/QuizScreens/select_heart/heart_position_Screen.dart';
 import 'package:intune/screens/QuizScreens/select_lung/Posterior_View_position_screen.dart';
-import 'package:intune/screens/signScreens/signScreen.dart';
+import 'package:intune/screens/signScreens/login/signScreen.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
 import '../../../const/Linear_PercentIndicator/Linear_PercentIndicator.dart';

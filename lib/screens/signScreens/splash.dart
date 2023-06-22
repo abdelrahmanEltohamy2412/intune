@@ -4,7 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/material.dart';
 import 'package:intune/const/Navigetor/Navigetor.dart';
 import 'package:intune/screens/onboarding/onboardingScreen.dart';
-import 'package:intune/screens/signScreens/signScreen.dart';
+import 'package:intune/screens/signScreens/login/signScreen.dart';
 
 
 class SplashScreen extends StatefulWidget {

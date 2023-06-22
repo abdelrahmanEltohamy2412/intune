@@ -7,6 +7,8 @@ import 'package:intune/screens/QuizScreens/select_heart/heart_position_Screen.da
 import 'package:audioplayers/audioplayers.dart';
 import '../../const/Navigetor/Navigetor.dart';
 import '../../const/rate_container/rate_container_screen.dart';
+import '../../data/heart_line_state.dart';
+import 'chart.dart';
 
 class LiveDetectScreen extends StatefulWidget {
   const LiveDetectScreen({Key? key}) : super(key: key);
@@ -31,6 +33,7 @@ class _LiveDetectScreenState extends State<LiveDetectScreen> {
 
   @override
   void initState() {
+    HeartLineState().heartLine();
     // TODO: implement initState
     super.initState();
     audioPlayer.onPlayerStateChanged.listen((state) {
@@ -103,9 +106,9 @@ class _LiveDetectScreenState extends State<LiveDetectScreen> {
                       const SizedBox(
                         height: 20,
                       ),
-                      Row(
+                      const Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: const [
+                        children: [
                           RateContainerScreen(
                             text: "25 mm/s",
                           ),
@@ -120,7 +123,10 @@ class _LiveDetectScreenState extends State<LiveDetectScreen> {
                       const SizedBox(
                         height: 20,
                       ),
-                      SvgPicture.asset("lib/assets/images/Mask Group 84.svg"),
+                      SizedBox(height: 250,
+                        width: double.infinity,
+                        child: ChartPage(title: 'Ecg')
+                        ,),
                       SizedBox(
                         height: 40,
                       ),
@@ -168,7 +174,7 @@ class _LiveDetectScreenState extends State<LiveDetectScreen> {
                                 color: MyColor.green,
                               ),
                               child: MaterialButton(
-                                onPressed: () {navigateTo(context, HeartReport());},
+                                onPressed: () {navigateTo(context, HeartReport(heartModel:  HeartLineState().heartLineList ,));},
                                 child: const Text(
                                   "Save",
                                   style: TextStyle(

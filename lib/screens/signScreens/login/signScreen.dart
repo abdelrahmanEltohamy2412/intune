@@ -10,12 +10,12 @@ import 'package:intune/screens/HomeScreen/homescreen.dart';
 import 'package:intune/screens/signScreens/RegisterScreen.dart';
 import 'package:intune/screens/signScreens/forgetpasswordScreen.dart';
 
-import '../../const/Fill_button/fill_button_screen.dart';
-import '../../const/outline_border_button_screen/outline_border_screen.dart';
-import '../../models/user_modelReg.dart';
-import '../../network/data_resourses/local/cachehelper.dart';
-import '../../network/data_resourses/remote/dio_helper.dart';
-import '../../network/data_resourses/remote/endPoints.dart';
+import '../../../const/Fill_button/fill_button_screen.dart';
+import '../../../const/outline_border_button_screen/outline_border_screen.dart';
+import '../../../models/user_modelReg.dart';
+import '../../../network/data_resourses/local/cachehelper.dart';
+import '../../../network/data_resourses/remote/dio_helper.dart';
+import '../../../network/data_resourses/remote/endPoints.dart';
 
 class SignScreen extends StatefulWidget {
   const SignScreen({Key? key}) : super(key: key);
@@ -46,8 +46,8 @@ class _SignScreenState extends State<SignScreen> {
     try{ Response response = await DioHelper.postData(url: signIn,body: data );
     if(response.statusCode==200){
       user = LoginModel.fromJson(response.data);
-       CacheHelper.saveData(key: "token", value: "${userdata!.accessToken}" );
-      navigateAndFinished(context, BottomBarScreen());
+
+      navigateTo(context, BottomBarScreen());
     }
     else{
       print('Register Error = ${response.data}');
@@ -204,7 +204,7 @@ class _SignScreenState extends State<SignScreen> {
                             onpressed:
                                 () {if(fromkey.currentState!.validate()){
 
-                               login();
+                           navigateTo(context, BottomBarScreen());
                             }},
                           ),
                         ),
@@ -221,82 +221,7 @@ class _SignScreenState extends State<SignScreen> {
                         ),
 
 
-                        // const Center(
-                        //   child: Text(
-                        //     "Also can sign in with ",
-                        //     style: TextStyle(
-                        //         color: MyColor.pink,
-                        //         fontSize: 14,
-                        //         fontFamily: "TiltNeon"),
-                        //   ),
-                        // ),
-                        // Row(
-                        //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        //   children: [
-                        //     Container(
-                        //       width: 50,
-                        //       height: 50,
-                        //       decoration: BoxDecoration(
-                        //           borderRadius: BorderRadius.circular(15),
-                        //           color: MyColor.lightPink),
-                        //       child: IconButton(
-                        //           // Use the FaIcon Widget + FontAwesomeIcons class for the IconData
-                        //           icon: const FaIcon(
-                        //             FontAwesomeIcons.facebookF,
-                        //             color: Colors.white,
-                        //           ),
-                        //           onPressed: () {
-                        //             print("Pressed");
-                        //           }),
-                        //     ),
-                        //     Container(
-                        //       width: 50,
-                        //       height: 50,
-                        //       decoration: BoxDecoration(
-                        //           borderRadius: BorderRadius.circular(15),
-                        //           color: MyColor.lightPink),
-                        //       child: IconButton(
-                        //           // Use the FaIcon Widget + FontAwesomeIcons class for the IconData
-                        //           icon: const FaIcon(
-                        //             FontAwesomeIcons.google,
-                        //             color: Colors.white,
-                        //           ),
-                        //           onPressed: () {
-                        //             print("Pressed");
-                        //           }),
-                        //     ),
-                        //     Container(
-                        //       width: 50,
-                        //       height: 50,
-                        //       decoration: BoxDecoration(
-                        //           borderRadius: BorderRadius.circular(15),
-                        //           color: MyColor.lightPink),
-                        //       child: IconButton(
-                        //           // Use the FaIcon Widget + FontAwesomeIcons class for the IconData
-                        //           icon: const FaIcon(
-                        //             FontAwesomeIcons.apple,
-                        //             color: Colors.white,
-                        //           ),
-                        //           onPressed: () {
-                        //             print("Pressed");
-                        //           }),
-                        //     ),
-                        //     Material(
-                        //       color: MyColor.lightPink,
-                        //       borderRadius: BorderRadius.circular(15),
-                        //       child: InkWell(
-                        //         onTap: () {},
-                        //         child: ClipRRect(
-                        //           borderRadius: BorderRadius.circular(50),
-                        //           child: Image.asset(
-                        //               'lib/assets/images/Icon simple-huawei.png',
-                        //               width: 50,
-                        //               height: 50),
-                        //         ),
-                        //       ),
-                        //     )
-                        //   ],
-                        // )
+
                       ],
                     ),
                   ),

@@ -9,7 +9,7 @@ import 'package:intune/const/TextForm_screen/TextForm_Screen.dart';
 import 'package:intune/const/colors/colors.dart';
 import 'package:intune/screens/QuizScreens/patient_Gender_Screen.dart';
 import 'package:intune/screens/QuizScreens/patient_Photo_Screen.dart';
-import 'package:intune/screens/signScreens/signScreen.dart';
+import 'package:intune/screens/signScreens/login/signScreen.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
 import '../../const/Fill_button/fill_button_screen.dart';

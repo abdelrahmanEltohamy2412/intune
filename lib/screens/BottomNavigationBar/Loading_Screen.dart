@@ -12,6 +12,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:lottie/lottie.dart';
 
 import '../../const/Navigetor/Navigetor.dart';
+import '../../data/heart_line_state.dart';
 import '../live_detect/live_detect_grey.dart';
 
 class LoadingScreen extends StatefulWidget {
@@ -22,16 +23,17 @@ class LoadingScreen extends StatefulWidget {
 }
 
 class _LoadingScreenState extends State<LoadingScreen> {
-  int splashtime = 20;
+  int splashtime = 5;
   // duration of splash screen on second
 
   @override
   void initState() {
+    HeartLineState().heartLine();
 
     Future.delayed(Duration(seconds: splashtime), () async {
       // String? token = CacheHelper.getKey(key: 'token');
       //  if(token!=null){
-      navigateTo(context, const LiveDetectGreyScreen());
+      navigateTo(context,  LiveDetectGreyScreen(heartModel:  HeartLineState().heartLineList,));
       // }
       //else{
       //  navigateTo(context, SignScreen());

@@ -4,6 +4,7 @@ import 'package:intune/screens/BottomNavigationBar/heart_record/heart_record_rep
 import 'package:intune/screens/BottomNavigationBar/patient_record/Patient_Record.dart';
 
 import '../../../const/Navigetor/Navigetor.dart';
+import '../../../data/heart_line_state.dart';
 
 class HeartRecord extends StatelessWidget {
   const HeartRecord({Key? key}) : super(key: key);
@@ -53,18 +54,18 @@ class HeartRecord extends StatelessWidget {
               height: 40,
             ),
             InkWell(
-              onTap: () => navigateTo(context, HeartReport()),
+              onTap: () => navigateTo(context, HeartReport(heartModel: HeartLineState().heartLineList,)),
               child: Container(
                 width: 350,
                 height: 75,
                 decoration: BoxDecoration(
                     color: MyColor.green,
                     borderRadius: BorderRadius.circular(22)),
-                child: Padding(
-                  padding: const EdgeInsets.all(20),
+                child: const Padding(
+                  padding: EdgeInsets.all(20),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
+                    children: [
                       Text(
                         "Diagnose 1",
                         style: TextStyle(color: MyColor.dark, fontSize: 15),

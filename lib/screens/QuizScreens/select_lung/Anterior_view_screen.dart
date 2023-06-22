@@ -6,7 +6,7 @@ import 'package:intune/const/colors/colors.dart';
 import 'package:intune/screens/QuizScreens/patient_Gender_Screen.dart';
 import 'package:intune/screens/QuizScreens/select_lung/Anterior_View_photo_screen.dart';
 
-import 'package:intune/screens/signScreens/signScreen.dart';
+import 'package:intune/screens/signScreens/login/signScreen.dart';
 
 import '../../../const/Fill_button/fill_button_screen.dart';
 

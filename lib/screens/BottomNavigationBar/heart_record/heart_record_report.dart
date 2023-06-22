@@ -6,10 +6,12 @@ import 'package:intune/screens/BottomNavigationBar/heart_record/heart_record.dar
 import 'package:share/share.dart';
 
 import '../../../const/rate_container/rate_container_screen.dart';
+import '../../../models/heart_live_model.dart';
+import '../../live_detect/chart.dart';
 
 class HeartReport extends StatefulWidget {
-  const HeartReport({Key? key}) : super(key: key);
-
+  const HeartReport({Key? key, required this.heartModel}) : super(key: key);
+  final Map<String,dynamic> heartModel;
   @override
   State<HeartReport> createState() => _HeartReportState();
 }
@@ -25,11 +27,15 @@ class _HeartReportState extends State<HeartReport> {
   final audioPlayer3 = AudioPlayer();
   Duration duration = Duration.zero;
   late Source audioUrl;
-
+  List<dynamic> heartdata=
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 150, 253, 202, 31, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 37, 251, 251, 253, 107, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 21, 197, 251, 251, 253, 107
+  ];
+  int? res;
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
+
     audioPlayer.onPlayerStateChanged.listen((state) {
       setState(() {
         isPlaying = state == PlayerState.playing;
@@ -62,11 +68,39 @@ class _HeartReportState extends State<HeartReport> {
   }
 
   Widget build(BuildContext context) {
+
+    // setState(() {
+
+
+    // for (var elm in widget.heartModel) {
+    //  // .compareTo(heartdata.toString());
+    //
+    // }
+
+
     return Scaffold(
       body: SingleChildScrollView(
         child: SafeArea(
           child: Column(
             children: [
+              Visibility(
+                  visible: false,
+                  child: ListView.builder(
+                    shrinkWrap: true,
+                    physics: NeverScrollableScrollPhysics(),
+                    itemCount: heartdata.length,
+             itemBuilder: (context, index) {
+                      print('sdadasdvv}');
+               // ignore: unrelated_type_equality_checks
+               if( widget.heartModel[index]['ecgData']['data'] ==heartdata){
+                 res =0;
+               }else {
+                 res =1;
+               }
+               print('res => $res');
+               return CircularProgressIndicator();
+             },
+              )),
               Container(
                 width: double.infinity,
                 height: 130,
@@ -621,7 +655,10 @@ class _HeartReportState extends State<HeartReport> {
               SizedBox(
                 height: 5,
               ),
-              Image.asset("lib/assets/images/ratee.jpg"),
+              SizedBox(height: 250,
+                width: double.infinity,
+                child: ChartPage(title: 'Ecg')
+                ,),
               Align(
                 alignment: Alignment.bottomRight,
                 child: Padding(
